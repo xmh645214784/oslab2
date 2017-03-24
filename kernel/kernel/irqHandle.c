@@ -1,5 +1,6 @@
 #include "x86.h"
 #include "device.h"
+#include <sys/syscall.h>
 
 void syscallHandle(struct TrapFrame *tf);
 
@@ -25,7 +26,33 @@ void irqHandle(struct TrapFrame *tf) {
 }
 
 void syscallHandle(struct TrapFrame *tf) {
-	/* 实现系统调用*/
+	switch(tf->eax) {
+		/* TODO: Add more system calls. */
+		case SYS_write:
+		{
+			if (tf->ebx == 1 || tf->ebx == 2)
+			{
+				char *buf=(void *)tf->ecx;
+				int len=tf->edx;
+           		char ch;
+           		while (len--) 
+           		 {
+		           	ch=*(buf++);
+		            if (ch == '\0') 
+		            	break;
+					extern void putChar(char ch);
+		            putChar(ch);				
+	            }
+	        	tf->eax=len;
+			}
+			else
+			{
+				assert(0);
+			}
+			break;
+		}
+		default: assert(0);
+	}
 }
 
 void GProtectFaultHandle(struct TrapFrame *tf){

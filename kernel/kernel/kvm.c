@@ -5,6 +5,11 @@ SegDesc gdt[NR_SEGMENTS];
 TSS tss;
 
 #define SECTSIZE 512
+#define ELF_START_POS (201*SECTSIZE)
+
+uint32_t loader(char *buf);
+void readseg(char *address, int count, int offset);
+void init_segment(void);
 
 void waitDisk(void) {
 	while((inByte(0x1F7) & 0xC0) != 0x40); 
@@ -46,18 +51,70 @@ void initSeg() {
 	lLdt(0);
 	
 }
-
 void enterUserSpace(uint32_t entry) {
 	/*
 	 * Before enter user space 
 	 * you should set the right segment registers here
 	 * and use 'iret' to jump to ring3
 	 */
+	asm volatile("movw %0,%%ds  ;"
+				 "pushw %1		;"
+				 "pushl %2		;"
+				 "pushl %3		;"
+				 "pushl %4		;"
+				 "pushl %5		"
+				 :
+				 :"a"((SEG_UDATA<<3)&3),
+				  "i"((SEG_UDATA<<3)&3),
+				  "i"(0xC0000000),
+				  "i"(2),
+				  "i"((SEG_UCODE<<3)&3),
+				  "m"(entry)
+				 );
 	asm volatile("iret");
 }
 
 void loadUMain(void) {
 
 	/*加载用户程序至内存*/
+	char buf[SECTSIZE];
+	/*read elf from disk*/
+	readseg((char*)buf, SECTSIZE, ELF_START_POS);
+	uint32_t entry=loader(buf);
+	enterUserSpace(entry);
+}
+/* 将磁盘offset位置的count字节数据读入物理地址pa */
+void readseg(char *address, int count, int offset) 
+{
+	address -= offset % SECTSIZE;
+	offset = (offset / SECTSIZE) + 1;
+	for(; address < address + count; address += SECTSIZE, offset ++)
+		readSect(address, offset);
+}
 
+uint32_t loader(char *buf)
+{
+	ELFHeader *elf=(void *)buf;
+	ProgramHeader *ph = NULL;
+	uint16_t real_phnum=elf->phnum;
+	if(elf->phnum==0xffffU)
+	{
+		assert(0);
+	}
+	for(int i=0;i<real_phnum;i++) 
+	{
+		ph=(void*)(buf+elf->phoff+i*elf->phentsize);
+		if(ph->type == 1) /*PT_LOAD*/
+		{
+			uint32_t Offset=ph->off;
+			uint32_t VirtAddr =ph->vaddr;//This is now physical addr.But should be VA
+			int FileSiz=ph->filesz;
+			int MemSize=ph->memsz;
+			readseg((void*)(VirtAddr),FileSiz,ELF_START_POS+Offset);
+			if(MemSize-FileSiz>0)
+				for (char* i = (char*)VirtAddr + FileSiz; i < (char*)VirtAddr + MemSize; *i ++ = 0);
+		}
+	}
+	volatile uint32_t entry = elf->entry;
+	return entry;
 }

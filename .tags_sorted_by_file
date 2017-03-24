@@ -1,0 +1,1310 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+QEMU	Makefile	/^QEMU = qemu-system-i386$/;"	m
+CC	app/Makefile	/^CC = gcc$/;"	m
+CFLAGS	app/Makefile	/^CFLAGS = -m32 -march=i386 -static \\$/;"	m
+LCFILES	app/Makefile	/^LCFILES = $(shell find ..\/lib -name "*.c")$/;"	m
+LD	app/Makefile	/^LD = ld$/;"	m
+LDFLAGS	app/Makefile	/^LDFLAGS = -m elf_i386$/;"	m
+UCFILES	app/Makefile	/^UCFILES = $(shell find .\/ -name "*.c")$/;"	m
+UOBJS	app/Makefile	/^UOBJS = $(UCFILES:.c=.o) $(LCFILES:.c=.o)$/;"	m
+uEntry	app/main.c	/^int uEntry(void) {$/;"	f
+ELF_START_POS	bootloader/boot.c	7;"	d	file:
+SECTSIZE	bootloader/boot.c	5;"	d	file:
+START_ADDR	bootloader/boot.c	6;"	d	file:
+assert	bootloader/boot.c	9;"	d	file:
+bootMain	bootloader/boot.c	/^void bootMain(void) {$/;"	f
+loader	bootloader/boot.c	/^uint32_t loader(char *buf)$/;"	f
+readSect	bootloader/boot.c	/^void readSect(void *dst, int offset) { \/\/ reading one sector of disk$/;"	f
+readseg	bootloader/boot.c	/^void readseg(unsigned char *address, int count, int offset) $/;"	f
+uint16_t	bootloader/boot.c	/^typedef unsigned short uint16_t;$/;"	t	file:
+uint32_t	bootloader/boot.c	/^typedef unsigned uint32_t;$/;"	t	file:
+waitDisk	bootloader/boot.c	/^void waitDisk(void) { \/\/ waiting for disk$/;"	f
+BOOT_H	bootloader/boot.h	2;"	d
+ELFHeader	bootloader/boot.h	/^struct ELFHeader {$/;"	s
+ELFHeader	bootloader/boot.h	/^typedef struct ELFHeader ELFHeader;$/;"	t	typeref:struct:ELFHeader
+ProgramHeader	bootloader/boot.h	/^struct ProgramHeader {$/;"	s
+ProgramHeader	bootloader/boot.h	/^typedef struct ProgramHeader ProgramHeader;$/;"	t	typeref:struct:ProgramHeader
+align	bootloader/boot.h	/^	unsigned int align;$/;"	m	struct:ProgramHeader
+ehsize	bootloader/boot.h	/^	unsigned short ehsize;$/;"	m	struct:ELFHeader
+elf	bootloader/boot.h	/^	unsigned char  elf[12];$/;"	m	struct:ELFHeader
+entry	bootloader/boot.h	/^	unsigned int   entry;$/;"	m	struct:ELFHeader
+filesz	bootloader/boot.h	/^	unsigned int filesz;$/;"	m	struct:ProgramHeader
+flags	bootloader/boot.h	/^	unsigned int   flags;$/;"	m	struct:ELFHeader
+flags	bootloader/boot.h	/^	unsigned int flags;$/;"	m	struct:ProgramHeader
+inByte	bootloader/boot.h	/^static inline char inByte(short port) {$/;"	f
+inLong	bootloader/boot.h	/^static inline int inLong(short port) {$/;"	f
+machine	bootloader/boot.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader
+magic	bootloader/boot.h	/^	unsigned int   magic;$/;"	m	struct:ELFHeader
+memsz	bootloader/boot.h	/^	unsigned int memsz;$/;"	m	struct:ProgramHeader
+off	bootloader/boot.h	/^	unsigned int off;$/;"	m	struct:ProgramHeader
+outByte	bootloader/boot.h	/^static inline void outByte(short port, char data) {$/;"	f
+paddr	bootloader/boot.h	/^	unsigned int paddr;$/;"	m	struct:ProgramHeader
+phentsize	bootloader/boot.h	/^	unsigned short phentsize;$/;"	m	struct:ELFHeader
+phnum	bootloader/boot.h	/^	unsigned short phnum;$/;"	m	struct:ELFHeader
+phoff	bootloader/boot.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader
+shentsize	bootloader/boot.h	/^	unsigned short shentsize;$/;"	m	struct:ELFHeader
+shnum	bootloader/boot.h	/^	unsigned short shnum;$/;"	m	struct:ELFHeader
+shoff	bootloader/boot.h	/^	unsigned int   shoff;$/;"	m	struct:ELFHeader
+shstrndx	bootloader/boot.h	/^	unsigned short shstrndx;$/;"	m	struct:ELFHeader
+type	bootloader/boot.h	/^	unsigned int type;$/;"	m	struct:ProgramHeader
+type	bootloader/boot.h	/^	unsigned short type;$/;"	m	struct:ELFHeader
+vaddr	bootloader/boot.h	/^	unsigned int vaddr;$/;"	m	struct:ProgramHeader
+version	bootloader/boot.h	/^	unsigned int   version;$/;"	m	struct:ELFHeader
+GDT_ENTRY	bootloader/start.S	/^#define GDT_ENTRY(n) ((n) << 3)$/;"	d
+gdt	bootloader/start.S	/^gdt:$/;"	l
+gdtDesc	bootloader/start.S	/^gdtDesc:$/;"	l
+start	bootloader/start.S	/^start:$/;"	l
+start32	bootloader/start.S	/^start32:$/;"	l
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+ASFLAGS	kernel/Makefile	/^ASFLAGS = -m32$/;"	m
+CC	kernel/Makefile	/^CC = gcc$/;"	m
+CFLAGS	kernel/Makefile	/^CFLAGS = -m32 -march=i386 -static \\$/;"	m
+KCFILES	kernel/Makefile	/^KCFILES = $(shell find .\/ -name "*.c")$/;"	m
+KOBJS	kernel/Makefile	/^KOBJS = $(KCFILES:.c=.o) $(KSFILES:.S=.o)$/;"	m
+KSFILES	kernel/Makefile	/^KSFILES = $(shell find .\/ -name "*.S")$/;"	m
+LD	kernel/Makefile	/^LD = ld$/;"	m
+LDFLAGS	kernel/Makefile	/^LDFLAGS = -m elf_i386$/;"	m
+__COMMON_H__	kernel/include/common.h	2;"	d
+__ASSERT_H__	kernel/include/common/assert.h	2;"	d
+assert	kernel/include/common/assert.h	7;"	d
+FALSE	kernel/include/common/const.h	5;"	d
+NULL	kernel/include/common/const.h	7;"	d
+TRUE	kernel/include/common/const.h	4;"	d
+__CONST_H__	kernel/include/common/const.h	2;"	d
+__TYPES_H__	kernel/include/common/types.h	2;"	d
+int16_t	kernel/include/common/types.h	/^typedef          short int16_t;$/;"	t
+int32_t	kernel/include/common/types.h	/^typedef          int   int32_t;$/;"	t
+int8_t	kernel/include/common/types.h	/^typedef          char  int8_t;$/;"	t
+size_t	kernel/include/common/types.h	/^typedef unsigned int   size_t;$/;"	t
+uint16_t	kernel/include/common/types.h	/^typedef unsigned short uint16_t;$/;"	t
+uint32_t	kernel/include/common/types.h	/^typedef unsigned int   uint32_t;$/;"	t
+uint8_t	kernel/include/common/types.h	/^typedef unsigned char  uint8_t;$/;"	t
+__DEVICE_H__	kernel/include/device.h	2;"	d
+SERIAL_PORT	kernel/include/device/serial.h	6;"	d
+__SERIAL_H__	kernel/include/device/serial.h	2;"	d
+SYS__llseek	kernel/include/sysnum.h	432;"	d
+SYS__newselect	kernel/include/sysnum.h	438;"	d
+SYS__sysctl	kernel/include/sysnum.h	459;"	d
+SYS_access	kernel/include/sysnum.h	111;"	d
+SYS_acct	kernel/include/sysnum.h	165;"	d
+SYS_add_key	kernel/include/sysnum.h	858;"	d
+SYS_adjtimex	kernel/include/sysnum.h	384;"	d
+SYS_afs_syscall	kernel/include/sysnum.h	423;"	d
+SYS_alarm	kernel/include/sysnum.h	93;"	d
+SYS_bdflush	kernel/include/sysnum.h	414;"	d
+SYS_break	kernel/include/sysnum.h	63;"	d
+SYS_brk	kernel/include/sysnum.h	147;"	d
+SYS_capget	kernel/include/sysnum.h	564;"	d
+SYS_capset	kernel/include/sysnum.h	567;"	d
+SYS_chdir	kernel/include/sysnum.h	48;"	d
+SYS_chmod	kernel/include/sysnum.h	57;"	d
+SYS_chown	kernel/include/sysnum.h	558;"	d
+SYS_chown32	kernel/include/sysnum.h	648;"	d
+SYS_chroot	kernel/include/sysnum.h	195;"	d
+SYS_clock_adjtime	kernel/include/sysnum.h	1029;"	d
+SYS_clock_getres	kernel/include/sysnum.h	801;"	d
+SYS_clock_gettime	kernel/include/sysnum.h	798;"	d
+SYS_clock_nanosleep	kernel/include/sysnum.h	804;"	d
+SYS_clock_settime	kernel/include/sysnum.h	795;"	d
+SYS_clone	kernel/include/sysnum.h	372;"	d
+SYS_close	kernel/include/sysnum.h	30;"	d
+SYS_creat	kernel/include/sysnum.h	36;"	d
+SYS_create_module	kernel/include/sysnum.h	393;"	d
+SYS_delete_module	kernel/include/sysnum.h	399;"	d
+SYS_dup	kernel/include/sysnum.h	135;"	d
+SYS_dup2	kernel/include/sysnum.h	201;"	d
+SYS_dup3	kernel/include/sysnum.h	990;"	d
+SYS_epoll_create	kernel/include/sysnum.h	765;"	d
+SYS_epoll_create1	kernel/include/sysnum.h	987;"	d
+SYS_epoll_ctl	kernel/include/sysnum.h	768;"	d
+SYS_epoll_pwait	kernel/include/sysnum.h	957;"	d
+SYS_epoll_wait	kernel/include/sysnum.h	771;"	d
+SYS_eventfd	kernel/include/sysnum.h	969;"	d
+SYS_eventfd2	kernel/include/sysnum.h	984;"	d
+SYS_execve	kernel/include/sysnum.h	45;"	d
+SYS_exit	kernel/include/sysnum.h	15;"	d
+SYS_exit_group	kernel/include/sysnum.h	759;"	d
+SYS_faccessat	kernel/include/sysnum.h	921;"	d
+SYS_fadvise64	kernel/include/sysnum.h	756;"	d
+SYS_fadvise64_64	kernel/include/sysnum.h	819;"	d
+SYS_fallocate	kernel/include/sysnum.h	972;"	d
+SYS_fanotify_init	kernel/include/sysnum.h	1014;"	d
+SYS_fanotify_mark	kernel/include/sysnum.h	1017;"	d
+SYS_fchdir	kernel/include/sysnum.h	411;"	d
+SYS_fchmod	kernel/include/sysnum.h	294;"	d
+SYS_fchmodat	kernel/include/sysnum.h	918;"	d
+SYS_fchown	kernel/include/sysnum.h	297;"	d
+SYS_fchown32	kernel/include/sysnum.h	633;"	d
+SYS_fchownat	kernel/include/sysnum.h	894;"	d
+SYS_fcntl	kernel/include/sysnum.h	177;"	d
+SYS_fcntl64	kernel/include/sysnum.h	675;"	d
+SYS_fdatasync	kernel/include/sysnum.h	456;"	d
+SYS_fgetxattr	kernel/include/sysnum.h	699;"	d
+SYS_finit_module	kernel/include/sysnum.h	1050;"	d
+SYS_flistxattr	kernel/include/sysnum.h	708;"	d
+SYS_flock	kernel/include/sysnum.h	441;"	d
+SYS_fork	kernel/include/sysnum.h	18;"	d
+SYS_fremovexattr	kernel/include/sysnum.h	717;"	d
+SYS_fsetxattr	kernel/include/sysnum.h	690;"	d
+SYS_fstat	kernel/include/sysnum.h	336;"	d
+SYS_fstat64	kernel/include/sysnum.h	603;"	d
+SYS_fstatat64	kernel/include/sysnum.h	900;"	d
+SYS_fstatfs	kernel/include/sysnum.h	312;"	d
+SYS_fstatfs64	kernel/include/sysnum.h	810;"	d
+SYS_fsync	kernel/include/sysnum.h	366;"	d
+SYS_ftime	kernel/include/sysnum.h	117;"	d
+SYS_ftruncate	kernel/include/sysnum.h	291;"	d
+SYS_ftruncate64	kernel/include/sysnum.h	594;"	d
+SYS_futex	kernel/include/sysnum.h	726;"	d
+SYS_futimesat	kernel/include/sysnum.h	897;"	d
+SYS_get_kernel_syms	kernel/include/sysnum.h	402;"	d
+SYS_get_mempolicy	kernel/include/sysnum.h	828;"	d
+SYS_get_robust_list	kernel/include/sysnum.h	936;"	d
+SYS_get_thread_area	kernel/include/sysnum.h	738;"	d
+SYS_getcpu	kernel/include/sysnum.h	954;"	d
+SYS_getcwd	kernel/include/sysnum.h	561;"	d
+SYS_getdents	kernel/include/sysnum.h	435;"	d
+SYS_getdents64	kernel/include/sysnum.h	672;"	d
+SYS_getegid	kernel/include/sysnum.h	162;"	d
+SYS_getegid32	kernel/include/sysnum.h	618;"	d
+SYS_geteuid	kernel/include/sysnum.h	159;"	d
+SYS_geteuid32	kernel/include/sysnum.h	615;"	d
+SYS_getgid	kernel/include/sysnum.h	153;"	d
+SYS_getgid32	kernel/include/sysnum.h	612;"	d
+SYS_getgroups	kernel/include/sysnum.h	252;"	d
+SYS_getgroups32	kernel/include/sysnum.h	627;"	d
+SYS_getitimer	kernel/include/sysnum.h	327;"	d
+SYS_getpgid	kernel/include/sysnum.h	408;"	d
+SYS_getpgrp	kernel/include/sysnum.h	207;"	d
+SYS_getpid	kernel/include/sysnum.h	72;"	d
+SYS_getpmsg	kernel/include/sysnum.h	576;"	d
+SYS_getppid	kernel/include/sysnum.h	204;"	d
+SYS_getpriority	kernel/include/sysnum.h	300;"	d
+SYS_getresgid	kernel/include/sysnum.h	525;"	d
+SYS_getresgid32	kernel/include/sysnum.h	645;"	d
+SYS_getresuid	kernel/include/sysnum.h	507;"	d
+SYS_getresuid32	kernel/include/sysnum.h	639;"	d
+SYS_getrlimit	kernel/include/sysnum.h	240;"	d
+SYS_getrusage	kernel/include/sysnum.h	243;"	d
+SYS_getsid	kernel/include/sysnum.h	453;"	d
+SYS_gettid	kernel/include/sysnum.h	678;"	d
+SYS_gettimeofday	kernel/include/sysnum.h	246;"	d
+SYS_getuid	kernel/include/sysnum.h	84;"	d
+SYS_getuid32	kernel/include/sysnum.h	609;"	d
+SYS_getxattr	kernel/include/sysnum.h	693;"	d
+SYS_gtty	kernel/include/sysnum.h	108;"	d
+SYS_idle	kernel/include/sysnum.h	348;"	d
+SYS_init_module	kernel/include/sysnum.h	396;"	d
+SYS_inotify_add_watch	kernel/include/sysnum.h	876;"	d
+SYS_inotify_init	kernel/include/sysnum.h	873;"	d
+SYS_inotify_init1	kernel/include/sysnum.h	996;"	d
+SYS_inotify_rm_watch	kernel/include/sysnum.h	879;"	d
+SYS_io_cancel	kernel/include/sysnum.h	753;"	d
+SYS_io_destroy	kernel/include/sysnum.h	744;"	d
+SYS_io_getevents	kernel/include/sysnum.h	747;"	d
+SYS_io_setup	kernel/include/sysnum.h	741;"	d
+SYS_io_submit	kernel/include/sysnum.h	750;"	d
+SYS_ioctl	kernel/include/sysnum.h	174;"	d
+SYS_ioperm	kernel/include/sysnum.h	315;"	d
+SYS_iopl	kernel/include/sysnum.h	342;"	d
+SYS_ioprio_get	kernel/include/sysnum.h	870;"	d
+SYS_ioprio_set	kernel/include/sysnum.h	867;"	d
+SYS_ipc	kernel/include/sysnum.h	363;"	d
+SYS_kcmp	kernel/include/sysnum.h	1047;"	d
+SYS_kexec_load	kernel/include/sysnum.h	852;"	d
+SYS_keyctl	kernel/include/sysnum.h	864;"	d
+SYS_kill	kernel/include/sysnum.h	123;"	d
+SYS_lchown	kernel/include/sysnum.h	60;"	d
+SYS_lchown32	kernel/include/sysnum.h	606;"	d
+SYS_lgetxattr	kernel/include/sysnum.h	696;"	d
+SYS_link	kernel/include/sysnum.h	39;"	d
+SYS_linkat	kernel/include/sysnum.h	909;"	d
+SYS_listxattr	kernel/include/sysnum.h	702;"	d
+SYS_llistxattr	kernel/include/sysnum.h	705;"	d
+SYS_lock	kernel/include/sysnum.h	171;"	d
+SYS_lookup_dcookie	kernel/include/sysnum.h	762;"	d
+SYS_lremovexattr	kernel/include/sysnum.h	714;"	d
+SYS_lseek	kernel/include/sysnum.h	69;"	d
+SYS_lsetxattr	kernel/include/sysnum.h	687;"	d
+SYS_lstat	kernel/include/sysnum.h	333;"	d
+SYS_lstat64	kernel/include/sysnum.h	600;"	d
+SYS_madvise	kernel/include/sysnum.h	669;"	d
+SYS_mbind	kernel/include/sysnum.h	825;"	d
+SYS_memfd_create	kernel/include/sysnum.h	1062;"	d
+SYS_migrate_pages	kernel/include/sysnum.h	882;"	d
+SYS_mincore	kernel/include/sysnum.h	666;"	d
+SYS_mkdir	kernel/include/sysnum.h	129;"	d
+SYS_mkdirat	kernel/include/sysnum.h	888;"	d
+SYS_mknod	kernel/include/sysnum.h	54;"	d
+SYS_mknodat	kernel/include/sysnum.h	891;"	d
+SYS_mlock	kernel/include/sysnum.h	462;"	d
+SYS_mlockall	kernel/include/sysnum.h	468;"	d
+SYS_mmap	kernel/include/sysnum.h	282;"	d
+SYS_mmap2	kernel/include/sysnum.h	588;"	d
+SYS_modify_ldt	kernel/include/sysnum.h	381;"	d
+SYS_mount	kernel/include/sysnum.h	75;"	d
+SYS_move_pages	kernel/include/sysnum.h	951;"	d
+SYS_mprotect	kernel/include/sysnum.h	387;"	d
+SYS_mpx	kernel/include/sysnum.h	180;"	d
+SYS_mq_getsetattr	kernel/include/sysnum.h	849;"	d
+SYS_mq_notify	kernel/include/sysnum.h	846;"	d
+SYS_mq_open	kernel/include/sysnum.h	834;"	d
+SYS_mq_timedreceive	kernel/include/sysnum.h	843;"	d
+SYS_mq_timedsend	kernel/include/sysnum.h	840;"	d
+SYS_mq_unlink	kernel/include/sysnum.h	837;"	d
+SYS_mremap	kernel/include/sysnum.h	501;"	d
+SYS_msync	kernel/include/sysnum.h	444;"	d
+SYS_munlock	kernel/include/sysnum.h	465;"	d
+SYS_munlockall	kernel/include/sysnum.h	471;"	d
+SYS_munmap	kernel/include/sysnum.h	285;"	d
+SYS_name_to_handle_at	kernel/include/sysnum.h	1023;"	d
+SYS_nanosleep	kernel/include/sysnum.h	498;"	d
+SYS_nfsservctl	kernel/include/sysnum.h	519;"	d
+SYS_nice	kernel/include/sysnum.h	114;"	d
+SYS_oldfstat	kernel/include/sysnum.h	96;"	d
+SYS_oldlstat	kernel/include/sysnum.h	264;"	d
+SYS_oldolduname	kernel/include/sysnum.h	189;"	d
+SYS_oldstat	kernel/include/sysnum.h	66;"	d
+SYS_olduname	kernel/include/sysnum.h	339;"	d
+SYS_open	kernel/include/sysnum.h	27;"	d
+SYS_open_by_handle_at	kernel/include/sysnum.h	1026;"	d
+SYS_openat	kernel/include/sysnum.h	885;"	d
+SYS_pause	kernel/include/sysnum.h	99;"	d
+SYS_perf_event_open	kernel/include/sysnum.h	1008;"	d
+SYS_personality	kernel/include/sysnum.h	420;"	d
+SYS_pipe	kernel/include/sysnum.h	138;"	d
+SYS_pipe2	kernel/include/sysnum.h	993;"	d
+SYS_pivot_root	kernel/include/sysnum.h	663;"	d
+SYS_poll	kernel/include/sysnum.h	516;"	d
+SYS_ppoll	kernel/include/sysnum.h	927;"	d
+SYS_prctl	kernel/include/sysnum.h	528;"	d
+SYS_pread64	kernel/include/sysnum.h	552;"	d
+SYS_preadv	kernel/include/sysnum.h	999;"	d
+SYS_prlimit64	kernel/include/sysnum.h	1020;"	d
+SYS_process_vm_readv	kernel/include/sysnum.h	1041;"	d
+SYS_process_vm_writev	kernel/include/sysnum.h	1044;"	d
+SYS_prof	kernel/include/sysnum.h	144;"	d
+SYS_profil	kernel/include/sysnum.h	306;"	d
+SYS_pselect6	kernel/include/sysnum.h	924;"	d
+SYS_ptrace	kernel/include/sysnum.h	90;"	d
+SYS_putpmsg	kernel/include/sysnum.h	579;"	d
+SYS_pwrite64	kernel/include/sysnum.h	555;"	d
+SYS_pwritev	kernel/include/sysnum.h	1002;"	d
+SYS_query_module	kernel/include/sysnum.h	513;"	d
+SYS_quotactl	kernel/include/sysnum.h	405;"	d
+SYS_read	kernel/include/sysnum.h	21;"	d
+SYS_readahead	kernel/include/sysnum.h	681;"	d
+SYS_readdir	kernel/include/sysnum.h	279;"	d
+SYS_readlink	kernel/include/sysnum.h	267;"	d
+SYS_readlinkat	kernel/include/sysnum.h	915;"	d
+SYS_readv	kernel/include/sysnum.h	447;"	d
+SYS_reboot	kernel/include/sysnum.h	276;"	d
+SYS_recvmmsg	kernel/include/sysnum.h	1011;"	d
+SYS_remap_file_pages	kernel/include/sysnum.h	774;"	d
+SYS_removexattr	kernel/include/sysnum.h	711;"	d
+SYS_rename	kernel/include/sysnum.h	126;"	d
+SYS_renameat	kernel/include/sysnum.h	906;"	d
+SYS_renameat2	kernel/include/sysnum.h	1059;"	d
+SYS_request_key	kernel/include/sysnum.h	861;"	d
+SYS_restart_syscall	kernel/include/sysnum.h	12;"	d
+SYS_rmdir	kernel/include/sysnum.h	132;"	d
+SYS_rt_sigaction	kernel/include/sysnum.h	534;"	d
+SYS_rt_sigpending	kernel/include/sysnum.h	540;"	d
+SYS_rt_sigprocmask	kernel/include/sysnum.h	537;"	d
+SYS_rt_sigqueueinfo	kernel/include/sysnum.h	546;"	d
+SYS_rt_sigreturn	kernel/include/sysnum.h	531;"	d
+SYS_rt_sigsuspend	kernel/include/sysnum.h	549;"	d
+SYS_rt_sigtimedwait	kernel/include/sysnum.h	543;"	d
+SYS_rt_tgsigqueueinfo	kernel/include/sysnum.h	1005;"	d
+SYS_sched_get_priority_max	kernel/include/sysnum.h	489;"	d
+SYS_sched_get_priority_min	kernel/include/sysnum.h	492;"	d
+SYS_sched_getaffinity	kernel/include/sysnum.h	732;"	d
+SYS_sched_getattr	kernel/include/sysnum.h	1056;"	d
+SYS_sched_getparam	kernel/include/sysnum.h	477;"	d
+SYS_sched_getscheduler	kernel/include/sysnum.h	483;"	d
+SYS_sched_rr_get_interval	kernel/include/sysnum.h	495;"	d
+SYS_sched_setaffinity	kernel/include/sysnum.h	729;"	d
+SYS_sched_setattr	kernel/include/sysnum.h	1053;"	d
+SYS_sched_setparam	kernel/include/sysnum.h	474;"	d
+SYS_sched_setscheduler	kernel/include/sysnum.h	480;"	d
+SYS_sched_yield	kernel/include/sysnum.h	486;"	d
+SYS_select	kernel/include/sysnum.h	258;"	d
+SYS_sendfile	kernel/include/sysnum.h	573;"	d
+SYS_sendfile64	kernel/include/sysnum.h	723;"	d
+SYS_sendmmsg	kernel/include/sysnum.h	1035;"	d
+SYS_set_mempolicy	kernel/include/sysnum.h	831;"	d
+SYS_set_robust_list	kernel/include/sysnum.h	933;"	d
+SYS_set_thread_area	kernel/include/sysnum.h	735;"	d
+SYS_set_tid_address	kernel/include/sysnum.h	777;"	d
+SYS_setdomainname	kernel/include/sysnum.h	375;"	d
+SYS_setfsgid	kernel/include/sysnum.h	429;"	d
+SYS_setfsgid32	kernel/include/sysnum.h	660;"	d
+SYS_setfsuid	kernel/include/sysnum.h	426;"	d
+SYS_setfsuid32	kernel/include/sysnum.h	657;"	d
+SYS_setgid	kernel/include/sysnum.h	150;"	d
+SYS_setgid32	kernel/include/sysnum.h	654;"	d
+SYS_setgroups	kernel/include/sysnum.h	255;"	d
+SYS_setgroups32	kernel/include/sysnum.h	630;"	d
+SYS_sethostname	kernel/include/sysnum.h	234;"	d
+SYS_setitimer	kernel/include/sysnum.h	324;"	d
+SYS_setns	kernel/include/sysnum.h	1038;"	d
+SYS_setpgid	kernel/include/sysnum.h	183;"	d
+SYS_setpriority	kernel/include/sysnum.h	303;"	d
+SYS_setregid	kernel/include/sysnum.h	225;"	d
+SYS_setregid32	kernel/include/sysnum.h	624;"	d
+SYS_setresgid	kernel/include/sysnum.h	522;"	d
+SYS_setresgid32	kernel/include/sysnum.h	642;"	d
+SYS_setresuid	kernel/include/sysnum.h	504;"	d
+SYS_setresuid32	kernel/include/sysnum.h	636;"	d
+SYS_setreuid	kernel/include/sysnum.h	222;"	d
+SYS_setreuid32	kernel/include/sysnum.h	621;"	d
+SYS_setrlimit	kernel/include/sysnum.h	237;"	d
+SYS_setsid	kernel/include/sysnum.h	210;"	d
+SYS_settimeofday	kernel/include/sysnum.h	249;"	d
+SYS_setuid	kernel/include/sysnum.h	81;"	d
+SYS_setuid32	kernel/include/sysnum.h	651;"	d
+SYS_setxattr	kernel/include/sysnum.h	684;"	d
+SYS_sgetmask	kernel/include/sysnum.h	216;"	d
+SYS_sigaction	kernel/include/sysnum.h	213;"	d
+SYS_sigaltstack	kernel/include/sysnum.h	570;"	d
+SYS_signal	kernel/include/sysnum.h	156;"	d
+SYS_signalfd	kernel/include/sysnum.h	963;"	d
+SYS_signalfd4	kernel/include/sysnum.h	981;"	d
+SYS_sigpending	kernel/include/sysnum.h	231;"	d
+SYS_sigprocmask	kernel/include/sysnum.h	390;"	d
+SYS_sigreturn	kernel/include/sysnum.h	369;"	d
+SYS_sigsuspend	kernel/include/sysnum.h	228;"	d
+SYS_socketcall	kernel/include/sysnum.h	318;"	d
+SYS_splice	kernel/include/sysnum.h	939;"	d
+SYS_ssetmask	kernel/include/sysnum.h	219;"	d
+SYS_stat	kernel/include/sysnum.h	330;"	d
+SYS_stat64	kernel/include/sysnum.h	597;"	d
+SYS_statfs	kernel/include/sysnum.h	309;"	d
+SYS_statfs64	kernel/include/sysnum.h	807;"	d
+SYS_stime	kernel/include/sysnum.h	87;"	d
+SYS_stty	kernel/include/sysnum.h	105;"	d
+SYS_swapoff	kernel/include/sysnum.h	357;"	d
+SYS_swapon	kernel/include/sysnum.h	273;"	d
+SYS_symlink	kernel/include/sysnum.h	261;"	d
+SYS_symlinkat	kernel/include/sysnum.h	912;"	d
+SYS_sync	kernel/include/sysnum.h	120;"	d
+SYS_sync_file_range	kernel/include/sysnum.h	942;"	d
+SYS_syncfs	kernel/include/sysnum.h	1032;"	d
+SYS_sysfs	kernel/include/sysnum.h	417;"	d
+SYS_sysinfo	kernel/include/sysnum.h	360;"	d
+SYS_syslog	kernel/include/sysnum.h	321;"	d
+SYS_tee	kernel/include/sysnum.h	945;"	d
+SYS_tgkill	kernel/include/sysnum.h	813;"	d
+SYS_time	kernel/include/sysnum.h	51;"	d
+SYS_timer_create	kernel/include/sysnum.h	780;"	d
+SYS_timer_delete	kernel/include/sysnum.h	792;"	d
+SYS_timer_getoverrun	kernel/include/sysnum.h	789;"	d
+SYS_timer_gettime	kernel/include/sysnum.h	786;"	d
+SYS_timer_settime	kernel/include/sysnum.h	783;"	d
+SYS_timerfd_create	kernel/include/sysnum.h	966;"	d
+SYS_timerfd_gettime	kernel/include/sysnum.h	978;"	d
+SYS_timerfd_settime	kernel/include/sysnum.h	975;"	d
+SYS_times	kernel/include/sysnum.h	141;"	d
+SYS_tkill	kernel/include/sysnum.h	720;"	d
+SYS_truncate	kernel/include/sysnum.h	288;"	d
+SYS_truncate64	kernel/include/sysnum.h	591;"	d
+SYS_ugetrlimit	kernel/include/sysnum.h	585;"	d
+SYS_ulimit	kernel/include/sysnum.h	186;"	d
+SYS_umask	kernel/include/sysnum.h	192;"	d
+SYS_umount	kernel/include/sysnum.h	78;"	d
+SYS_umount2	kernel/include/sysnum.h	168;"	d
+SYS_uname	kernel/include/sysnum.h	378;"	d
+SYS_unlink	kernel/include/sysnum.h	42;"	d
+SYS_unlinkat	kernel/include/sysnum.h	903;"	d
+SYS_unshare	kernel/include/sysnum.h	930;"	d
+SYS_uselib	kernel/include/sysnum.h	270;"	d
+SYS_ustat	kernel/include/sysnum.h	198;"	d
+SYS_utime	kernel/include/sysnum.h	102;"	d
+SYS_utimensat	kernel/include/sysnum.h	960;"	d
+SYS_utimes	kernel/include/sysnum.h	816;"	d
+SYS_vfork	kernel/include/sysnum.h	582;"	d
+SYS_vhangup	kernel/include/sysnum.h	345;"	d
+SYS_vm86	kernel/include/sysnum.h	510;"	d
+SYS_vm86old	kernel/include/sysnum.h	351;"	d
+SYS_vmsplice	kernel/include/sysnum.h	948;"	d
+SYS_vserver	kernel/include/sysnum.h	822;"	d
+SYS_wait4	kernel/include/sysnum.h	354;"	d
+SYS_waitid	kernel/include/sysnum.h	855;"	d
+SYS_waitpid	kernel/include/sysnum.h	33;"	d
+SYS_write	kernel/include/sysnum.h	24;"	d
+SYS_writev	kernel/include/sysnum.h	450;"	d
+_BITS_SYSNUM_H	kernel/include/sysnum.h	4;"	d
+__NR__llseek	kernel/include/sysnum.h	430;"	d
+__NR__llseek	kernel/include/sysnum.h	431;"	d
+__NR__newselect	kernel/include/sysnum.h	436;"	d
+__NR__newselect	kernel/include/sysnum.h	437;"	d
+__NR__sysctl	kernel/include/sysnum.h	457;"	d
+__NR__sysctl	kernel/include/sysnum.h	458;"	d
+__NR_access	kernel/include/sysnum.h	109;"	d
+__NR_access	kernel/include/sysnum.h	110;"	d
+__NR_acct	kernel/include/sysnum.h	163;"	d
+__NR_acct	kernel/include/sysnum.h	164;"	d
+__NR_add_key	kernel/include/sysnum.h	856;"	d
+__NR_add_key	kernel/include/sysnum.h	857;"	d
+__NR_adjtimex	kernel/include/sysnum.h	382;"	d
+__NR_adjtimex	kernel/include/sysnum.h	383;"	d
+__NR_afs_syscall	kernel/include/sysnum.h	421;"	d
+__NR_afs_syscall	kernel/include/sysnum.h	422;"	d
+__NR_alarm	kernel/include/sysnum.h	91;"	d
+__NR_alarm	kernel/include/sysnum.h	92;"	d
+__NR_bdflush	kernel/include/sysnum.h	412;"	d
+__NR_bdflush	kernel/include/sysnum.h	413;"	d
+__NR_break	kernel/include/sysnum.h	61;"	d
+__NR_break	kernel/include/sysnum.h	62;"	d
+__NR_brk	kernel/include/sysnum.h	145;"	d
+__NR_brk	kernel/include/sysnum.h	146;"	d
+__NR_capget	kernel/include/sysnum.h	562;"	d
+__NR_capget	kernel/include/sysnum.h	563;"	d
+__NR_capset	kernel/include/sysnum.h	565;"	d
+__NR_capset	kernel/include/sysnum.h	566;"	d
+__NR_chdir	kernel/include/sysnum.h	46;"	d
+__NR_chdir	kernel/include/sysnum.h	47;"	d
+__NR_chmod	kernel/include/sysnum.h	55;"	d
+__NR_chmod	kernel/include/sysnum.h	56;"	d
+__NR_chown	kernel/include/sysnum.h	556;"	d
+__NR_chown	kernel/include/sysnum.h	557;"	d
+__NR_chown32	kernel/include/sysnum.h	646;"	d
+__NR_chown32	kernel/include/sysnum.h	647;"	d
+__NR_chroot	kernel/include/sysnum.h	193;"	d
+__NR_chroot	kernel/include/sysnum.h	194;"	d
+__NR_clock_adjtime	kernel/include/sysnum.h	1027;"	d
+__NR_clock_adjtime	kernel/include/sysnum.h	1028;"	d
+__NR_clock_getres	kernel/include/sysnum.h	799;"	d
+__NR_clock_getres	kernel/include/sysnum.h	800;"	d
+__NR_clock_gettime	kernel/include/sysnum.h	796;"	d
+__NR_clock_gettime	kernel/include/sysnum.h	797;"	d
+__NR_clock_nanosleep	kernel/include/sysnum.h	802;"	d
+__NR_clock_nanosleep	kernel/include/sysnum.h	803;"	d
+__NR_clock_settime	kernel/include/sysnum.h	793;"	d
+__NR_clock_settime	kernel/include/sysnum.h	794;"	d
+__NR_clone	kernel/include/sysnum.h	370;"	d
+__NR_clone	kernel/include/sysnum.h	371;"	d
+__NR_close	kernel/include/sysnum.h	28;"	d
+__NR_close	kernel/include/sysnum.h	29;"	d
+__NR_creat	kernel/include/sysnum.h	34;"	d
+__NR_creat	kernel/include/sysnum.h	35;"	d
+__NR_create_module	kernel/include/sysnum.h	391;"	d
+__NR_create_module	kernel/include/sysnum.h	392;"	d
+__NR_delete_module	kernel/include/sysnum.h	397;"	d
+__NR_delete_module	kernel/include/sysnum.h	398;"	d
+__NR_dup	kernel/include/sysnum.h	133;"	d
+__NR_dup	kernel/include/sysnum.h	134;"	d
+__NR_dup2	kernel/include/sysnum.h	199;"	d
+__NR_dup2	kernel/include/sysnum.h	200;"	d
+__NR_dup3	kernel/include/sysnum.h	988;"	d
+__NR_dup3	kernel/include/sysnum.h	989;"	d
+__NR_epoll_create	kernel/include/sysnum.h	763;"	d
+__NR_epoll_create	kernel/include/sysnum.h	764;"	d
+__NR_epoll_create1	kernel/include/sysnum.h	985;"	d
+__NR_epoll_create1	kernel/include/sysnum.h	986;"	d
+__NR_epoll_ctl	kernel/include/sysnum.h	766;"	d
+__NR_epoll_ctl	kernel/include/sysnum.h	767;"	d
+__NR_epoll_pwait	kernel/include/sysnum.h	955;"	d
+__NR_epoll_pwait	kernel/include/sysnum.h	956;"	d
+__NR_epoll_wait	kernel/include/sysnum.h	769;"	d
+__NR_epoll_wait	kernel/include/sysnum.h	770;"	d
+__NR_eventfd	kernel/include/sysnum.h	967;"	d
+__NR_eventfd	kernel/include/sysnum.h	968;"	d
+__NR_eventfd2	kernel/include/sysnum.h	982;"	d
+__NR_eventfd2	kernel/include/sysnum.h	983;"	d
+__NR_execve	kernel/include/sysnum.h	43;"	d
+__NR_execve	kernel/include/sysnum.h	44;"	d
+__NR_exit	kernel/include/sysnum.h	13;"	d
+__NR_exit	kernel/include/sysnum.h	14;"	d
+__NR_exit_group	kernel/include/sysnum.h	757;"	d
+__NR_exit_group	kernel/include/sysnum.h	758;"	d
+__NR_faccessat	kernel/include/sysnum.h	919;"	d
+__NR_faccessat	kernel/include/sysnum.h	920;"	d
+__NR_fadvise64	kernel/include/sysnum.h	754;"	d
+__NR_fadvise64	kernel/include/sysnum.h	755;"	d
+__NR_fadvise64_64	kernel/include/sysnum.h	817;"	d
+__NR_fadvise64_64	kernel/include/sysnum.h	818;"	d
+__NR_fallocate	kernel/include/sysnum.h	970;"	d
+__NR_fallocate	kernel/include/sysnum.h	971;"	d
+__NR_fanotify_init	kernel/include/sysnum.h	1012;"	d
+__NR_fanotify_init	kernel/include/sysnum.h	1013;"	d
+__NR_fanotify_mark	kernel/include/sysnum.h	1015;"	d
+__NR_fanotify_mark	kernel/include/sysnum.h	1016;"	d
+__NR_fchdir	kernel/include/sysnum.h	409;"	d
+__NR_fchdir	kernel/include/sysnum.h	410;"	d
+__NR_fchmod	kernel/include/sysnum.h	292;"	d
+__NR_fchmod	kernel/include/sysnum.h	293;"	d
+__NR_fchmodat	kernel/include/sysnum.h	916;"	d
+__NR_fchmodat	kernel/include/sysnum.h	917;"	d
+__NR_fchown	kernel/include/sysnum.h	295;"	d
+__NR_fchown	kernel/include/sysnum.h	296;"	d
+__NR_fchown32	kernel/include/sysnum.h	631;"	d
+__NR_fchown32	kernel/include/sysnum.h	632;"	d
+__NR_fchownat	kernel/include/sysnum.h	892;"	d
+__NR_fchownat	kernel/include/sysnum.h	893;"	d
+__NR_fcntl	kernel/include/sysnum.h	175;"	d
+__NR_fcntl	kernel/include/sysnum.h	176;"	d
+__NR_fcntl64	kernel/include/sysnum.h	673;"	d
+__NR_fcntl64	kernel/include/sysnum.h	674;"	d
+__NR_fdatasync	kernel/include/sysnum.h	454;"	d
+__NR_fdatasync	kernel/include/sysnum.h	455;"	d
+__NR_fgetxattr	kernel/include/sysnum.h	697;"	d
+__NR_fgetxattr	kernel/include/sysnum.h	698;"	d
+__NR_finit_module	kernel/include/sysnum.h	1048;"	d
+__NR_finit_module	kernel/include/sysnum.h	1049;"	d
+__NR_flistxattr	kernel/include/sysnum.h	706;"	d
+__NR_flistxattr	kernel/include/sysnum.h	707;"	d
+__NR_flock	kernel/include/sysnum.h	439;"	d
+__NR_flock	kernel/include/sysnum.h	440;"	d
+__NR_fork	kernel/include/sysnum.h	16;"	d
+__NR_fork	kernel/include/sysnum.h	17;"	d
+__NR_fremovexattr	kernel/include/sysnum.h	715;"	d
+__NR_fremovexattr	kernel/include/sysnum.h	716;"	d
+__NR_fsetxattr	kernel/include/sysnum.h	688;"	d
+__NR_fsetxattr	kernel/include/sysnum.h	689;"	d
+__NR_fstat	kernel/include/sysnum.h	334;"	d
+__NR_fstat	kernel/include/sysnum.h	335;"	d
+__NR_fstat64	kernel/include/sysnum.h	601;"	d
+__NR_fstat64	kernel/include/sysnum.h	602;"	d
+__NR_fstatat64	kernel/include/sysnum.h	898;"	d
+__NR_fstatat64	kernel/include/sysnum.h	899;"	d
+__NR_fstatfs	kernel/include/sysnum.h	310;"	d
+__NR_fstatfs	kernel/include/sysnum.h	311;"	d
+__NR_fstatfs64	kernel/include/sysnum.h	808;"	d
+__NR_fstatfs64	kernel/include/sysnum.h	809;"	d
+__NR_fsync	kernel/include/sysnum.h	364;"	d
+__NR_fsync	kernel/include/sysnum.h	365;"	d
+__NR_ftime	kernel/include/sysnum.h	115;"	d
+__NR_ftime	kernel/include/sysnum.h	116;"	d
+__NR_ftruncate	kernel/include/sysnum.h	289;"	d
+__NR_ftruncate	kernel/include/sysnum.h	290;"	d
+__NR_ftruncate64	kernel/include/sysnum.h	592;"	d
+__NR_ftruncate64	kernel/include/sysnum.h	593;"	d
+__NR_futex	kernel/include/sysnum.h	724;"	d
+__NR_futex	kernel/include/sysnum.h	725;"	d
+__NR_futimesat	kernel/include/sysnum.h	895;"	d
+__NR_futimesat	kernel/include/sysnum.h	896;"	d
+__NR_get_kernel_syms	kernel/include/sysnum.h	400;"	d
+__NR_get_kernel_syms	kernel/include/sysnum.h	401;"	d
+__NR_get_mempolicy	kernel/include/sysnum.h	826;"	d
+__NR_get_mempolicy	kernel/include/sysnum.h	827;"	d
+__NR_get_robust_list	kernel/include/sysnum.h	934;"	d
+__NR_get_robust_list	kernel/include/sysnum.h	935;"	d
+__NR_get_thread_area	kernel/include/sysnum.h	736;"	d
+__NR_get_thread_area	kernel/include/sysnum.h	737;"	d
+__NR_getcpu	kernel/include/sysnum.h	952;"	d
+__NR_getcpu	kernel/include/sysnum.h	953;"	d
+__NR_getcwd	kernel/include/sysnum.h	559;"	d
+__NR_getcwd	kernel/include/sysnum.h	560;"	d
+__NR_getdents	kernel/include/sysnum.h	433;"	d
+__NR_getdents	kernel/include/sysnum.h	434;"	d
+__NR_getdents64	kernel/include/sysnum.h	670;"	d
+__NR_getdents64	kernel/include/sysnum.h	671;"	d
+__NR_getegid	kernel/include/sysnum.h	160;"	d
+__NR_getegid	kernel/include/sysnum.h	161;"	d
+__NR_getegid32	kernel/include/sysnum.h	616;"	d
+__NR_getegid32	kernel/include/sysnum.h	617;"	d
+__NR_geteuid	kernel/include/sysnum.h	157;"	d
+__NR_geteuid	kernel/include/sysnum.h	158;"	d
+__NR_geteuid32	kernel/include/sysnum.h	613;"	d
+__NR_geteuid32	kernel/include/sysnum.h	614;"	d
+__NR_getgid	kernel/include/sysnum.h	151;"	d
+__NR_getgid	kernel/include/sysnum.h	152;"	d
+__NR_getgid32	kernel/include/sysnum.h	610;"	d
+__NR_getgid32	kernel/include/sysnum.h	611;"	d
+__NR_getgroups	kernel/include/sysnum.h	250;"	d
+__NR_getgroups	kernel/include/sysnum.h	251;"	d
+__NR_getgroups32	kernel/include/sysnum.h	625;"	d
+__NR_getgroups32	kernel/include/sysnum.h	626;"	d
+__NR_getitimer	kernel/include/sysnum.h	325;"	d
+__NR_getitimer	kernel/include/sysnum.h	326;"	d
+__NR_getpgid	kernel/include/sysnum.h	406;"	d
+__NR_getpgid	kernel/include/sysnum.h	407;"	d
+__NR_getpgrp	kernel/include/sysnum.h	205;"	d
+__NR_getpgrp	kernel/include/sysnum.h	206;"	d
+__NR_getpid	kernel/include/sysnum.h	70;"	d
+__NR_getpid	kernel/include/sysnum.h	71;"	d
+__NR_getpmsg	kernel/include/sysnum.h	574;"	d
+__NR_getpmsg	kernel/include/sysnum.h	575;"	d
+__NR_getppid	kernel/include/sysnum.h	202;"	d
+__NR_getppid	kernel/include/sysnum.h	203;"	d
+__NR_getpriority	kernel/include/sysnum.h	298;"	d
+__NR_getpriority	kernel/include/sysnum.h	299;"	d
+__NR_getresgid	kernel/include/sysnum.h	523;"	d
+__NR_getresgid	kernel/include/sysnum.h	524;"	d
+__NR_getresgid32	kernel/include/sysnum.h	643;"	d
+__NR_getresgid32	kernel/include/sysnum.h	644;"	d
+__NR_getresuid	kernel/include/sysnum.h	505;"	d
+__NR_getresuid	kernel/include/sysnum.h	506;"	d
+__NR_getresuid32	kernel/include/sysnum.h	637;"	d
+__NR_getresuid32	kernel/include/sysnum.h	638;"	d
+__NR_getrlimit	kernel/include/sysnum.h	238;"	d
+__NR_getrlimit	kernel/include/sysnum.h	239;"	d
+__NR_getrusage	kernel/include/sysnum.h	241;"	d
+__NR_getrusage	kernel/include/sysnum.h	242;"	d
+__NR_getsid	kernel/include/sysnum.h	451;"	d
+__NR_getsid	kernel/include/sysnum.h	452;"	d
+__NR_gettid	kernel/include/sysnum.h	676;"	d
+__NR_gettid	kernel/include/sysnum.h	677;"	d
+__NR_gettimeofday	kernel/include/sysnum.h	244;"	d
+__NR_gettimeofday	kernel/include/sysnum.h	245;"	d
+__NR_getuid	kernel/include/sysnum.h	82;"	d
+__NR_getuid	kernel/include/sysnum.h	83;"	d
+__NR_getuid32	kernel/include/sysnum.h	607;"	d
+__NR_getuid32	kernel/include/sysnum.h	608;"	d
+__NR_getxattr	kernel/include/sysnum.h	691;"	d
+__NR_getxattr	kernel/include/sysnum.h	692;"	d
+__NR_gtty	kernel/include/sysnum.h	106;"	d
+__NR_gtty	kernel/include/sysnum.h	107;"	d
+__NR_idle	kernel/include/sysnum.h	346;"	d
+__NR_idle	kernel/include/sysnum.h	347;"	d
+__NR_init_module	kernel/include/sysnum.h	394;"	d
+__NR_init_module	kernel/include/sysnum.h	395;"	d
+__NR_inotify_add_watch	kernel/include/sysnum.h	874;"	d
+__NR_inotify_add_watch	kernel/include/sysnum.h	875;"	d
+__NR_inotify_init	kernel/include/sysnum.h	871;"	d
+__NR_inotify_init	kernel/include/sysnum.h	872;"	d
+__NR_inotify_init1	kernel/include/sysnum.h	994;"	d
+__NR_inotify_init1	kernel/include/sysnum.h	995;"	d
+__NR_inotify_rm_watch	kernel/include/sysnum.h	877;"	d
+__NR_inotify_rm_watch	kernel/include/sysnum.h	878;"	d
+__NR_io_cancel	kernel/include/sysnum.h	751;"	d
+__NR_io_cancel	kernel/include/sysnum.h	752;"	d
+__NR_io_destroy	kernel/include/sysnum.h	742;"	d
+__NR_io_destroy	kernel/include/sysnum.h	743;"	d
+__NR_io_getevents	kernel/include/sysnum.h	745;"	d
+__NR_io_getevents	kernel/include/sysnum.h	746;"	d
+__NR_io_setup	kernel/include/sysnum.h	739;"	d
+__NR_io_setup	kernel/include/sysnum.h	740;"	d
+__NR_io_submit	kernel/include/sysnum.h	748;"	d
+__NR_io_submit	kernel/include/sysnum.h	749;"	d
+__NR_ioctl	kernel/include/sysnum.h	172;"	d
+__NR_ioctl	kernel/include/sysnum.h	173;"	d
+__NR_ioperm	kernel/include/sysnum.h	313;"	d
+__NR_ioperm	kernel/include/sysnum.h	314;"	d
+__NR_iopl	kernel/include/sysnum.h	340;"	d
+__NR_iopl	kernel/include/sysnum.h	341;"	d
+__NR_ioprio_get	kernel/include/sysnum.h	868;"	d
+__NR_ioprio_get	kernel/include/sysnum.h	869;"	d
+__NR_ioprio_set	kernel/include/sysnum.h	865;"	d
+__NR_ioprio_set	kernel/include/sysnum.h	866;"	d
+__NR_ipc	kernel/include/sysnum.h	361;"	d
+__NR_ipc	kernel/include/sysnum.h	362;"	d
+__NR_kcmp	kernel/include/sysnum.h	1045;"	d
+__NR_kcmp	kernel/include/sysnum.h	1046;"	d
+__NR_kexec_load	kernel/include/sysnum.h	850;"	d
+__NR_kexec_load	kernel/include/sysnum.h	851;"	d
+__NR_keyctl	kernel/include/sysnum.h	862;"	d
+__NR_keyctl	kernel/include/sysnum.h	863;"	d
+__NR_kill	kernel/include/sysnum.h	121;"	d
+__NR_kill	kernel/include/sysnum.h	122;"	d
+__NR_lchown	kernel/include/sysnum.h	58;"	d
+__NR_lchown	kernel/include/sysnum.h	59;"	d
+__NR_lchown32	kernel/include/sysnum.h	604;"	d
+__NR_lchown32	kernel/include/sysnum.h	605;"	d
+__NR_lgetxattr	kernel/include/sysnum.h	694;"	d
+__NR_lgetxattr	kernel/include/sysnum.h	695;"	d
+__NR_link	kernel/include/sysnum.h	37;"	d
+__NR_link	kernel/include/sysnum.h	38;"	d
+__NR_linkat	kernel/include/sysnum.h	907;"	d
+__NR_linkat	kernel/include/sysnum.h	908;"	d
+__NR_listxattr	kernel/include/sysnum.h	700;"	d
+__NR_listxattr	kernel/include/sysnum.h	701;"	d
+__NR_llistxattr	kernel/include/sysnum.h	703;"	d
+__NR_llistxattr	kernel/include/sysnum.h	704;"	d
+__NR_lock	kernel/include/sysnum.h	169;"	d
+__NR_lock	kernel/include/sysnum.h	170;"	d
+__NR_lookup_dcookie	kernel/include/sysnum.h	760;"	d
+__NR_lookup_dcookie	kernel/include/sysnum.h	761;"	d
+__NR_lremovexattr	kernel/include/sysnum.h	712;"	d
+__NR_lremovexattr	kernel/include/sysnum.h	713;"	d
+__NR_lseek	kernel/include/sysnum.h	67;"	d
+__NR_lseek	kernel/include/sysnum.h	68;"	d
+__NR_lsetxattr	kernel/include/sysnum.h	685;"	d
+__NR_lsetxattr	kernel/include/sysnum.h	686;"	d
+__NR_lstat	kernel/include/sysnum.h	331;"	d
+__NR_lstat	kernel/include/sysnum.h	332;"	d
+__NR_lstat64	kernel/include/sysnum.h	598;"	d
+__NR_lstat64	kernel/include/sysnum.h	599;"	d
+__NR_madvise	kernel/include/sysnum.h	667;"	d
+__NR_madvise	kernel/include/sysnum.h	668;"	d
+__NR_mbind	kernel/include/sysnum.h	823;"	d
+__NR_mbind	kernel/include/sysnum.h	824;"	d
+__NR_memfd_create	kernel/include/sysnum.h	1060;"	d
+__NR_memfd_create	kernel/include/sysnum.h	1061;"	d
+__NR_migrate_pages	kernel/include/sysnum.h	880;"	d
+__NR_migrate_pages	kernel/include/sysnum.h	881;"	d
+__NR_mincore	kernel/include/sysnum.h	664;"	d
+__NR_mincore	kernel/include/sysnum.h	665;"	d
+__NR_mkdir	kernel/include/sysnum.h	127;"	d
+__NR_mkdir	kernel/include/sysnum.h	128;"	d
+__NR_mkdirat	kernel/include/sysnum.h	886;"	d
+__NR_mkdirat	kernel/include/sysnum.h	887;"	d
+__NR_mknod	kernel/include/sysnum.h	52;"	d
+__NR_mknod	kernel/include/sysnum.h	53;"	d
+__NR_mknodat	kernel/include/sysnum.h	889;"	d
+__NR_mknodat	kernel/include/sysnum.h	890;"	d
+__NR_mlock	kernel/include/sysnum.h	460;"	d
+__NR_mlock	kernel/include/sysnum.h	461;"	d
+__NR_mlockall	kernel/include/sysnum.h	466;"	d
+__NR_mlockall	kernel/include/sysnum.h	467;"	d
+__NR_mmap	kernel/include/sysnum.h	280;"	d
+__NR_mmap	kernel/include/sysnum.h	281;"	d
+__NR_mmap2	kernel/include/sysnum.h	586;"	d
+__NR_mmap2	kernel/include/sysnum.h	587;"	d
+__NR_modify_ldt	kernel/include/sysnum.h	379;"	d
+__NR_modify_ldt	kernel/include/sysnum.h	380;"	d
+__NR_mount	kernel/include/sysnum.h	73;"	d
+__NR_mount	kernel/include/sysnum.h	74;"	d
+__NR_move_pages	kernel/include/sysnum.h	949;"	d
+__NR_move_pages	kernel/include/sysnum.h	950;"	d
+__NR_mprotect	kernel/include/sysnum.h	385;"	d
+__NR_mprotect	kernel/include/sysnum.h	386;"	d
+__NR_mpx	kernel/include/sysnum.h	178;"	d
+__NR_mpx	kernel/include/sysnum.h	179;"	d
+__NR_mq_getsetattr	kernel/include/sysnum.h	847;"	d
+__NR_mq_getsetattr	kernel/include/sysnum.h	848;"	d
+__NR_mq_notify	kernel/include/sysnum.h	844;"	d
+__NR_mq_notify	kernel/include/sysnum.h	845;"	d
+__NR_mq_open	kernel/include/sysnum.h	832;"	d
+__NR_mq_open	kernel/include/sysnum.h	833;"	d
+__NR_mq_timedreceive	kernel/include/sysnum.h	841;"	d
+__NR_mq_timedreceive	kernel/include/sysnum.h	842;"	d
+__NR_mq_timedsend	kernel/include/sysnum.h	838;"	d
+__NR_mq_timedsend	kernel/include/sysnum.h	839;"	d
+__NR_mq_unlink	kernel/include/sysnum.h	835;"	d
+__NR_mq_unlink	kernel/include/sysnum.h	836;"	d
+__NR_mremap	kernel/include/sysnum.h	499;"	d
+__NR_mremap	kernel/include/sysnum.h	500;"	d
+__NR_msync	kernel/include/sysnum.h	442;"	d
+__NR_msync	kernel/include/sysnum.h	443;"	d
+__NR_munlock	kernel/include/sysnum.h	463;"	d
+__NR_munlock	kernel/include/sysnum.h	464;"	d
+__NR_munlockall	kernel/include/sysnum.h	469;"	d
+__NR_munlockall	kernel/include/sysnum.h	470;"	d
+__NR_munmap	kernel/include/sysnum.h	283;"	d
+__NR_munmap	kernel/include/sysnum.h	284;"	d
+__NR_name_to_handle_at	kernel/include/sysnum.h	1021;"	d
+__NR_name_to_handle_at	kernel/include/sysnum.h	1022;"	d
+__NR_nanosleep	kernel/include/sysnum.h	496;"	d
+__NR_nanosleep	kernel/include/sysnum.h	497;"	d
+__NR_nfsservctl	kernel/include/sysnum.h	517;"	d
+__NR_nfsservctl	kernel/include/sysnum.h	518;"	d
+__NR_nice	kernel/include/sysnum.h	112;"	d
+__NR_nice	kernel/include/sysnum.h	113;"	d
+__NR_oldfstat	kernel/include/sysnum.h	94;"	d
+__NR_oldfstat	kernel/include/sysnum.h	95;"	d
+__NR_oldlstat	kernel/include/sysnum.h	262;"	d
+__NR_oldlstat	kernel/include/sysnum.h	263;"	d
+__NR_oldolduname	kernel/include/sysnum.h	187;"	d
+__NR_oldolduname	kernel/include/sysnum.h	188;"	d
+__NR_oldstat	kernel/include/sysnum.h	64;"	d
+__NR_oldstat	kernel/include/sysnum.h	65;"	d
+__NR_olduname	kernel/include/sysnum.h	337;"	d
+__NR_olduname	kernel/include/sysnum.h	338;"	d
+__NR_open	kernel/include/sysnum.h	25;"	d
+__NR_open	kernel/include/sysnum.h	26;"	d
+__NR_open_by_handle_at	kernel/include/sysnum.h	1024;"	d
+__NR_open_by_handle_at	kernel/include/sysnum.h	1025;"	d
+__NR_openat	kernel/include/sysnum.h	883;"	d
+__NR_openat	kernel/include/sysnum.h	884;"	d
+__NR_pause	kernel/include/sysnum.h	97;"	d
+__NR_pause	kernel/include/sysnum.h	98;"	d
+__NR_perf_event_open	kernel/include/sysnum.h	1006;"	d
+__NR_perf_event_open	kernel/include/sysnum.h	1007;"	d
+__NR_personality	kernel/include/sysnum.h	418;"	d
+__NR_personality	kernel/include/sysnum.h	419;"	d
+__NR_pipe	kernel/include/sysnum.h	136;"	d
+__NR_pipe	kernel/include/sysnum.h	137;"	d
+__NR_pipe2	kernel/include/sysnum.h	991;"	d
+__NR_pipe2	kernel/include/sysnum.h	992;"	d
+__NR_pivot_root	kernel/include/sysnum.h	661;"	d
+__NR_pivot_root	kernel/include/sysnum.h	662;"	d
+__NR_poll	kernel/include/sysnum.h	514;"	d
+__NR_poll	kernel/include/sysnum.h	515;"	d
+__NR_ppoll	kernel/include/sysnum.h	925;"	d
+__NR_ppoll	kernel/include/sysnum.h	926;"	d
+__NR_prctl	kernel/include/sysnum.h	526;"	d
+__NR_prctl	kernel/include/sysnum.h	527;"	d
+__NR_pread64	kernel/include/sysnum.h	550;"	d
+__NR_pread64	kernel/include/sysnum.h	551;"	d
+__NR_preadv	kernel/include/sysnum.h	997;"	d
+__NR_preadv	kernel/include/sysnum.h	998;"	d
+__NR_prlimit64	kernel/include/sysnum.h	1018;"	d
+__NR_prlimit64	kernel/include/sysnum.h	1019;"	d
+__NR_process_vm_readv	kernel/include/sysnum.h	1039;"	d
+__NR_process_vm_readv	kernel/include/sysnum.h	1040;"	d
+__NR_process_vm_writev	kernel/include/sysnum.h	1042;"	d
+__NR_process_vm_writev	kernel/include/sysnum.h	1043;"	d
+__NR_prof	kernel/include/sysnum.h	142;"	d
+__NR_prof	kernel/include/sysnum.h	143;"	d
+__NR_profil	kernel/include/sysnum.h	304;"	d
+__NR_profil	kernel/include/sysnum.h	305;"	d
+__NR_pselect6	kernel/include/sysnum.h	922;"	d
+__NR_pselect6	kernel/include/sysnum.h	923;"	d
+__NR_ptrace	kernel/include/sysnum.h	88;"	d
+__NR_ptrace	kernel/include/sysnum.h	89;"	d
+__NR_putpmsg	kernel/include/sysnum.h	577;"	d
+__NR_putpmsg	kernel/include/sysnum.h	578;"	d
+__NR_pwrite64	kernel/include/sysnum.h	553;"	d
+__NR_pwrite64	kernel/include/sysnum.h	554;"	d
+__NR_pwritev	kernel/include/sysnum.h	1000;"	d
+__NR_pwritev	kernel/include/sysnum.h	1001;"	d
+__NR_query_module	kernel/include/sysnum.h	511;"	d
+__NR_query_module	kernel/include/sysnum.h	512;"	d
+__NR_quotactl	kernel/include/sysnum.h	403;"	d
+__NR_quotactl	kernel/include/sysnum.h	404;"	d
+__NR_read	kernel/include/sysnum.h	19;"	d
+__NR_read	kernel/include/sysnum.h	20;"	d
+__NR_readahead	kernel/include/sysnum.h	679;"	d
+__NR_readahead	kernel/include/sysnum.h	680;"	d
+__NR_readdir	kernel/include/sysnum.h	277;"	d
+__NR_readdir	kernel/include/sysnum.h	278;"	d
+__NR_readlink	kernel/include/sysnum.h	265;"	d
+__NR_readlink	kernel/include/sysnum.h	266;"	d
+__NR_readlinkat	kernel/include/sysnum.h	913;"	d
+__NR_readlinkat	kernel/include/sysnum.h	914;"	d
+__NR_readv	kernel/include/sysnum.h	445;"	d
+__NR_readv	kernel/include/sysnum.h	446;"	d
+__NR_reboot	kernel/include/sysnum.h	274;"	d
+__NR_reboot	kernel/include/sysnum.h	275;"	d
+__NR_recvmmsg	kernel/include/sysnum.h	1009;"	d
+__NR_recvmmsg	kernel/include/sysnum.h	1010;"	d
+__NR_remap_file_pages	kernel/include/sysnum.h	772;"	d
+__NR_remap_file_pages	kernel/include/sysnum.h	773;"	d
+__NR_removexattr	kernel/include/sysnum.h	709;"	d
+__NR_removexattr	kernel/include/sysnum.h	710;"	d
+__NR_rename	kernel/include/sysnum.h	124;"	d
+__NR_rename	kernel/include/sysnum.h	125;"	d
+__NR_renameat	kernel/include/sysnum.h	904;"	d
+__NR_renameat	kernel/include/sysnum.h	905;"	d
+__NR_renameat2	kernel/include/sysnum.h	1057;"	d
+__NR_renameat2	kernel/include/sysnum.h	1058;"	d
+__NR_request_key	kernel/include/sysnum.h	859;"	d
+__NR_request_key	kernel/include/sysnum.h	860;"	d
+__NR_restart_syscall	kernel/include/sysnum.h	10;"	d
+__NR_restart_syscall	kernel/include/sysnum.h	11;"	d
+__NR_rmdir	kernel/include/sysnum.h	130;"	d
+__NR_rmdir	kernel/include/sysnum.h	131;"	d
+__NR_rt_sigaction	kernel/include/sysnum.h	532;"	d
+__NR_rt_sigaction	kernel/include/sysnum.h	533;"	d
+__NR_rt_sigpending	kernel/include/sysnum.h	538;"	d
+__NR_rt_sigpending	kernel/include/sysnum.h	539;"	d
+__NR_rt_sigprocmask	kernel/include/sysnum.h	535;"	d
+__NR_rt_sigprocmask	kernel/include/sysnum.h	536;"	d
+__NR_rt_sigqueueinfo	kernel/include/sysnum.h	544;"	d
+__NR_rt_sigqueueinfo	kernel/include/sysnum.h	545;"	d
+__NR_rt_sigreturn	kernel/include/sysnum.h	529;"	d
+__NR_rt_sigreturn	kernel/include/sysnum.h	530;"	d
+__NR_rt_sigsuspend	kernel/include/sysnum.h	547;"	d
+__NR_rt_sigsuspend	kernel/include/sysnum.h	548;"	d
+__NR_rt_sigtimedwait	kernel/include/sysnum.h	541;"	d
+__NR_rt_sigtimedwait	kernel/include/sysnum.h	542;"	d
+__NR_rt_tgsigqueueinfo	kernel/include/sysnum.h	1003;"	d
+__NR_rt_tgsigqueueinfo	kernel/include/sysnum.h	1004;"	d
+__NR_sched_get_priority_max	kernel/include/sysnum.h	487;"	d
+__NR_sched_get_priority_max	kernel/include/sysnum.h	488;"	d
+__NR_sched_get_priority_min	kernel/include/sysnum.h	490;"	d
+__NR_sched_get_priority_min	kernel/include/sysnum.h	491;"	d
+__NR_sched_getaffinity	kernel/include/sysnum.h	730;"	d
+__NR_sched_getaffinity	kernel/include/sysnum.h	731;"	d
+__NR_sched_getattr	kernel/include/sysnum.h	1054;"	d
+__NR_sched_getattr	kernel/include/sysnum.h	1055;"	d
+__NR_sched_getparam	kernel/include/sysnum.h	475;"	d
+__NR_sched_getparam	kernel/include/sysnum.h	476;"	d
+__NR_sched_getscheduler	kernel/include/sysnum.h	481;"	d
+__NR_sched_getscheduler	kernel/include/sysnum.h	482;"	d
+__NR_sched_rr_get_interval	kernel/include/sysnum.h	493;"	d
+__NR_sched_rr_get_interval	kernel/include/sysnum.h	494;"	d
+__NR_sched_setaffinity	kernel/include/sysnum.h	727;"	d
+__NR_sched_setaffinity	kernel/include/sysnum.h	728;"	d
+__NR_sched_setattr	kernel/include/sysnum.h	1051;"	d
+__NR_sched_setattr	kernel/include/sysnum.h	1052;"	d
+__NR_sched_setparam	kernel/include/sysnum.h	472;"	d
+__NR_sched_setparam	kernel/include/sysnum.h	473;"	d
+__NR_sched_setscheduler	kernel/include/sysnum.h	478;"	d
+__NR_sched_setscheduler	kernel/include/sysnum.h	479;"	d
+__NR_sched_yield	kernel/include/sysnum.h	484;"	d
+__NR_sched_yield	kernel/include/sysnum.h	485;"	d
+__NR_select	kernel/include/sysnum.h	256;"	d
+__NR_select	kernel/include/sysnum.h	257;"	d
+__NR_sendfile	kernel/include/sysnum.h	571;"	d
+__NR_sendfile	kernel/include/sysnum.h	572;"	d
+__NR_sendfile64	kernel/include/sysnum.h	721;"	d
+__NR_sendfile64	kernel/include/sysnum.h	722;"	d
+__NR_sendmmsg	kernel/include/sysnum.h	1033;"	d
+__NR_sendmmsg	kernel/include/sysnum.h	1034;"	d
+__NR_set_mempolicy	kernel/include/sysnum.h	829;"	d
+__NR_set_mempolicy	kernel/include/sysnum.h	830;"	d
+__NR_set_robust_list	kernel/include/sysnum.h	931;"	d
+__NR_set_robust_list	kernel/include/sysnum.h	932;"	d
+__NR_set_thread_area	kernel/include/sysnum.h	733;"	d
+__NR_set_thread_area	kernel/include/sysnum.h	734;"	d
+__NR_set_tid_address	kernel/include/sysnum.h	775;"	d
+__NR_set_tid_address	kernel/include/sysnum.h	776;"	d
+__NR_setdomainname	kernel/include/sysnum.h	373;"	d
+__NR_setdomainname	kernel/include/sysnum.h	374;"	d
+__NR_setfsgid	kernel/include/sysnum.h	427;"	d
+__NR_setfsgid	kernel/include/sysnum.h	428;"	d
+__NR_setfsgid32	kernel/include/sysnum.h	658;"	d
+__NR_setfsgid32	kernel/include/sysnum.h	659;"	d
+__NR_setfsuid	kernel/include/sysnum.h	424;"	d
+__NR_setfsuid	kernel/include/sysnum.h	425;"	d
+__NR_setfsuid32	kernel/include/sysnum.h	655;"	d
+__NR_setfsuid32	kernel/include/sysnum.h	656;"	d
+__NR_setgid	kernel/include/sysnum.h	148;"	d
+__NR_setgid	kernel/include/sysnum.h	149;"	d
+__NR_setgid32	kernel/include/sysnum.h	652;"	d
+__NR_setgid32	kernel/include/sysnum.h	653;"	d
+__NR_setgroups	kernel/include/sysnum.h	253;"	d
+__NR_setgroups	kernel/include/sysnum.h	254;"	d
+__NR_setgroups32	kernel/include/sysnum.h	628;"	d
+__NR_setgroups32	kernel/include/sysnum.h	629;"	d
+__NR_sethostname	kernel/include/sysnum.h	232;"	d
+__NR_sethostname	kernel/include/sysnum.h	233;"	d
+__NR_setitimer	kernel/include/sysnum.h	322;"	d
+__NR_setitimer	kernel/include/sysnum.h	323;"	d
+__NR_setns	kernel/include/sysnum.h	1036;"	d
+__NR_setns	kernel/include/sysnum.h	1037;"	d
+__NR_setpgid	kernel/include/sysnum.h	181;"	d
+__NR_setpgid	kernel/include/sysnum.h	182;"	d
+__NR_setpriority	kernel/include/sysnum.h	301;"	d
+__NR_setpriority	kernel/include/sysnum.h	302;"	d
+__NR_setregid	kernel/include/sysnum.h	223;"	d
+__NR_setregid	kernel/include/sysnum.h	224;"	d
+__NR_setregid32	kernel/include/sysnum.h	622;"	d
+__NR_setregid32	kernel/include/sysnum.h	623;"	d
+__NR_setresgid	kernel/include/sysnum.h	520;"	d
+__NR_setresgid	kernel/include/sysnum.h	521;"	d
+__NR_setresgid32	kernel/include/sysnum.h	640;"	d
+__NR_setresgid32	kernel/include/sysnum.h	641;"	d
+__NR_setresuid	kernel/include/sysnum.h	502;"	d
+__NR_setresuid	kernel/include/sysnum.h	503;"	d
+__NR_setresuid32	kernel/include/sysnum.h	634;"	d
+__NR_setresuid32	kernel/include/sysnum.h	635;"	d
+__NR_setreuid	kernel/include/sysnum.h	220;"	d
+__NR_setreuid	kernel/include/sysnum.h	221;"	d
+__NR_setreuid32	kernel/include/sysnum.h	619;"	d
+__NR_setreuid32	kernel/include/sysnum.h	620;"	d
+__NR_setrlimit	kernel/include/sysnum.h	235;"	d
+__NR_setrlimit	kernel/include/sysnum.h	236;"	d
+__NR_setsid	kernel/include/sysnum.h	208;"	d
+__NR_setsid	kernel/include/sysnum.h	209;"	d
+__NR_settimeofday	kernel/include/sysnum.h	247;"	d
+__NR_settimeofday	kernel/include/sysnum.h	248;"	d
+__NR_setuid	kernel/include/sysnum.h	79;"	d
+__NR_setuid	kernel/include/sysnum.h	80;"	d
+__NR_setuid32	kernel/include/sysnum.h	649;"	d
+__NR_setuid32	kernel/include/sysnum.h	650;"	d
+__NR_setxattr	kernel/include/sysnum.h	682;"	d
+__NR_setxattr	kernel/include/sysnum.h	683;"	d
+__NR_sgetmask	kernel/include/sysnum.h	214;"	d
+__NR_sgetmask	kernel/include/sysnum.h	215;"	d
+__NR_sigaction	kernel/include/sysnum.h	211;"	d
+__NR_sigaction	kernel/include/sysnum.h	212;"	d
+__NR_sigaltstack	kernel/include/sysnum.h	568;"	d
+__NR_sigaltstack	kernel/include/sysnum.h	569;"	d
+__NR_signal	kernel/include/sysnum.h	154;"	d
+__NR_signal	kernel/include/sysnum.h	155;"	d
+__NR_signalfd	kernel/include/sysnum.h	961;"	d
+__NR_signalfd	kernel/include/sysnum.h	962;"	d
+__NR_signalfd4	kernel/include/sysnum.h	979;"	d
+__NR_signalfd4	kernel/include/sysnum.h	980;"	d
+__NR_sigpending	kernel/include/sysnum.h	229;"	d
+__NR_sigpending	kernel/include/sysnum.h	230;"	d
+__NR_sigprocmask	kernel/include/sysnum.h	388;"	d
+__NR_sigprocmask	kernel/include/sysnum.h	389;"	d
+__NR_sigreturn	kernel/include/sysnum.h	367;"	d
+__NR_sigreturn	kernel/include/sysnum.h	368;"	d
+__NR_sigsuspend	kernel/include/sysnum.h	226;"	d
+__NR_sigsuspend	kernel/include/sysnum.h	227;"	d
+__NR_socketcall	kernel/include/sysnum.h	316;"	d
+__NR_socketcall	kernel/include/sysnum.h	317;"	d
+__NR_splice	kernel/include/sysnum.h	937;"	d
+__NR_splice	kernel/include/sysnum.h	938;"	d
+__NR_ssetmask	kernel/include/sysnum.h	217;"	d
+__NR_ssetmask	kernel/include/sysnum.h	218;"	d
+__NR_stat	kernel/include/sysnum.h	328;"	d
+__NR_stat	kernel/include/sysnum.h	329;"	d
+__NR_stat64	kernel/include/sysnum.h	595;"	d
+__NR_stat64	kernel/include/sysnum.h	596;"	d
+__NR_statfs	kernel/include/sysnum.h	307;"	d
+__NR_statfs	kernel/include/sysnum.h	308;"	d
+__NR_statfs64	kernel/include/sysnum.h	805;"	d
+__NR_statfs64	kernel/include/sysnum.h	806;"	d
+__NR_stime	kernel/include/sysnum.h	85;"	d
+__NR_stime	kernel/include/sysnum.h	86;"	d
+__NR_stty	kernel/include/sysnum.h	103;"	d
+__NR_stty	kernel/include/sysnum.h	104;"	d
+__NR_swapoff	kernel/include/sysnum.h	355;"	d
+__NR_swapoff	kernel/include/sysnum.h	356;"	d
+__NR_swapon	kernel/include/sysnum.h	271;"	d
+__NR_swapon	kernel/include/sysnum.h	272;"	d
+__NR_symlink	kernel/include/sysnum.h	259;"	d
+__NR_symlink	kernel/include/sysnum.h	260;"	d
+__NR_symlinkat	kernel/include/sysnum.h	910;"	d
+__NR_symlinkat	kernel/include/sysnum.h	911;"	d
+__NR_sync	kernel/include/sysnum.h	118;"	d
+__NR_sync	kernel/include/sysnum.h	119;"	d
+__NR_sync_file_range	kernel/include/sysnum.h	940;"	d
+__NR_sync_file_range	kernel/include/sysnum.h	941;"	d
+__NR_syncfs	kernel/include/sysnum.h	1030;"	d
+__NR_syncfs	kernel/include/sysnum.h	1031;"	d
+__NR_sysfs	kernel/include/sysnum.h	415;"	d
+__NR_sysfs	kernel/include/sysnum.h	416;"	d
+__NR_sysinfo	kernel/include/sysnum.h	358;"	d
+__NR_sysinfo	kernel/include/sysnum.h	359;"	d
+__NR_syslog	kernel/include/sysnum.h	319;"	d
+__NR_syslog	kernel/include/sysnum.h	320;"	d
+__NR_tee	kernel/include/sysnum.h	943;"	d
+__NR_tee	kernel/include/sysnum.h	944;"	d
+__NR_tgkill	kernel/include/sysnum.h	811;"	d
+__NR_tgkill	kernel/include/sysnum.h	812;"	d
+__NR_time	kernel/include/sysnum.h	49;"	d
+__NR_time	kernel/include/sysnum.h	50;"	d
+__NR_timer_create	kernel/include/sysnum.h	778;"	d
+__NR_timer_create	kernel/include/sysnum.h	779;"	d
+__NR_timer_delete	kernel/include/sysnum.h	790;"	d
+__NR_timer_delete	kernel/include/sysnum.h	791;"	d
+__NR_timer_getoverrun	kernel/include/sysnum.h	787;"	d
+__NR_timer_getoverrun	kernel/include/sysnum.h	788;"	d
+__NR_timer_gettime	kernel/include/sysnum.h	784;"	d
+__NR_timer_gettime	kernel/include/sysnum.h	785;"	d
+__NR_timer_settime	kernel/include/sysnum.h	781;"	d
+__NR_timer_settime	kernel/include/sysnum.h	782;"	d
+__NR_timerfd_create	kernel/include/sysnum.h	964;"	d
+__NR_timerfd_create	kernel/include/sysnum.h	965;"	d
+__NR_timerfd_gettime	kernel/include/sysnum.h	976;"	d
+__NR_timerfd_gettime	kernel/include/sysnum.h	977;"	d
+__NR_timerfd_settime	kernel/include/sysnum.h	973;"	d
+__NR_timerfd_settime	kernel/include/sysnum.h	974;"	d
+__NR_times	kernel/include/sysnum.h	139;"	d
+__NR_times	kernel/include/sysnum.h	140;"	d
+__NR_tkill	kernel/include/sysnum.h	718;"	d
+__NR_tkill	kernel/include/sysnum.h	719;"	d
+__NR_truncate	kernel/include/sysnum.h	286;"	d
+__NR_truncate	kernel/include/sysnum.h	287;"	d
+__NR_truncate64	kernel/include/sysnum.h	589;"	d
+__NR_truncate64	kernel/include/sysnum.h	590;"	d
+__NR_ugetrlimit	kernel/include/sysnum.h	583;"	d
+__NR_ugetrlimit	kernel/include/sysnum.h	584;"	d
+__NR_ulimit	kernel/include/sysnum.h	184;"	d
+__NR_ulimit	kernel/include/sysnum.h	185;"	d
+__NR_umask	kernel/include/sysnum.h	190;"	d
+__NR_umask	kernel/include/sysnum.h	191;"	d
+__NR_umount	kernel/include/sysnum.h	76;"	d
+__NR_umount	kernel/include/sysnum.h	77;"	d
+__NR_umount2	kernel/include/sysnum.h	166;"	d
+__NR_umount2	kernel/include/sysnum.h	167;"	d
+__NR_uname	kernel/include/sysnum.h	376;"	d
+__NR_uname	kernel/include/sysnum.h	377;"	d
+__NR_unlink	kernel/include/sysnum.h	40;"	d
+__NR_unlink	kernel/include/sysnum.h	41;"	d
+__NR_unlinkat	kernel/include/sysnum.h	901;"	d
+__NR_unlinkat	kernel/include/sysnum.h	902;"	d
+__NR_unshare	kernel/include/sysnum.h	928;"	d
+__NR_unshare	kernel/include/sysnum.h	929;"	d
+__NR_uselib	kernel/include/sysnum.h	268;"	d
+__NR_uselib	kernel/include/sysnum.h	269;"	d
+__NR_ustat	kernel/include/sysnum.h	196;"	d
+__NR_ustat	kernel/include/sysnum.h	197;"	d
+__NR_utime	kernel/include/sysnum.h	100;"	d
+__NR_utime	kernel/include/sysnum.h	101;"	d
+__NR_utimensat	kernel/include/sysnum.h	958;"	d
+__NR_utimensat	kernel/include/sysnum.h	959;"	d
+__NR_utimes	kernel/include/sysnum.h	814;"	d
+__NR_utimes	kernel/include/sysnum.h	815;"	d
+__NR_vfork	kernel/include/sysnum.h	580;"	d
+__NR_vfork	kernel/include/sysnum.h	581;"	d
+__NR_vhangup	kernel/include/sysnum.h	343;"	d
+__NR_vhangup	kernel/include/sysnum.h	344;"	d
+__NR_vm86	kernel/include/sysnum.h	508;"	d
+__NR_vm86	kernel/include/sysnum.h	509;"	d
+__NR_vm86old	kernel/include/sysnum.h	349;"	d
+__NR_vm86old	kernel/include/sysnum.h	350;"	d
+__NR_vmsplice	kernel/include/sysnum.h	946;"	d
+__NR_vmsplice	kernel/include/sysnum.h	947;"	d
+__NR_vserver	kernel/include/sysnum.h	820;"	d
+__NR_vserver	kernel/include/sysnum.h	821;"	d
+__NR_wait4	kernel/include/sysnum.h	352;"	d
+__NR_wait4	kernel/include/sysnum.h	353;"	d
+__NR_waitid	kernel/include/sysnum.h	853;"	d
+__NR_waitid	kernel/include/sysnum.h	854;"	d
+__NR_waitpid	kernel/include/sysnum.h	31;"	d
+__NR_waitpid	kernel/include/sysnum.h	32;"	d
+__NR_write	kernel/include/sysnum.h	22;"	d
+__NR_write	kernel/include/sysnum.h	23;"	d
+__NR_writev	kernel/include/sysnum.h	448;"	d
+__NR_writev	kernel/include/sysnum.h	449;"	d
+__X86_H__	kernel/include/x86.h	2;"	d
+NR_IRQ	kernel/include/x86/cpu.h	30;"	d
+__X86_CPU_H__	kernel/include/x86/cpu.h	2;"	d
+disableInterrupt	kernel/include/x86/cpu.h	/^static inline void disableInterrupt(void) {$/;"	f
+enableInterrupt	kernel/include/x86/cpu.h	/^static inline void enableInterrupt(void) {$/;"	f
+saveIdt	kernel/include/x86/cpu.h	/^static inline void saveIdt(void *addr, uint32_t size) {$/;"	f
+waitForInterrupt	kernel/include/x86/cpu.h	/^static inline void waitForInterrupt() {$/;"	f
+ELFHeader	kernel/include/x86/io.h	/^struct ELFHeader {$/;"	s
+ProgramHeader	kernel/include/x86/io.h	/^struct ProgramHeader {$/;"	s
+__X86_IO_H__	kernel/include/x86/io.h	2;"	d
+align	kernel/include/x86/io.h	/^	unsigned int align;$/;"	m	struct:ProgramHeader
+ehsize	kernel/include/x86/io.h	/^	unsigned short ehsize;$/;"	m	struct:ELFHeader
+elf	kernel/include/x86/io.h	/^	unsigned char  elf[12];$/;"	m	struct:ELFHeader
+entry	kernel/include/x86/io.h	/^	unsigned int   entry;$/;"	m	struct:ELFHeader
+filesz	kernel/include/x86/io.h	/^	unsigned int filesz;$/;"	m	struct:ProgramHeader
+flags	kernel/include/x86/io.h	/^	unsigned int   flags;$/;"	m	struct:ELFHeader
+flags	kernel/include/x86/io.h	/^	unsigned int flags;$/;"	m	struct:ProgramHeader
+inByte	kernel/include/x86/io.h	/^static inline uint8_t inByte(uint16_t port) {$/;"	f
+inLong	kernel/include/x86/io.h	/^static inline int inLong(short port) {$/;"	f
+machine	kernel/include/x86/io.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader
+magic	kernel/include/x86/io.h	/^	unsigned int   magic;$/;"	m	struct:ELFHeader
+memsz	kernel/include/x86/io.h	/^	unsigned int memsz;$/;"	m	struct:ProgramHeader
+off	kernel/include/x86/io.h	/^	unsigned int off;$/;"	m	struct:ProgramHeader
+outByte	kernel/include/x86/io.h	/^static inline void outByte(uint16_t port, int8_t data) {$/;"	f
+paddr	kernel/include/x86/io.h	/^	unsigned int paddr;$/;"	m	struct:ProgramHeader
+phentsize	kernel/include/x86/io.h	/^	unsigned short phentsize;$/;"	m	struct:ELFHeader
+phnum	kernel/include/x86/io.h	/^	unsigned short phnum;$/;"	m	struct:ELFHeader
+phoff	kernel/include/x86/io.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader
+shentsize	kernel/include/x86/io.h	/^	unsigned short shentsize;$/;"	m	struct:ELFHeader
+shnum	kernel/include/x86/io.h	/^	unsigned short shnum;$/;"	m	struct:ELFHeader
+shoff	kernel/include/x86/io.h	/^	unsigned int   shoff;$/;"	m	struct:ELFHeader
+shstrndx	kernel/include/x86/io.h	/^	unsigned short shstrndx;$/;"	m	struct:ELFHeader
+type	kernel/include/x86/io.h	/^	unsigned int type;$/;"	m	struct:ProgramHeader
+type	kernel/include/x86/io.h	/^	unsigned short type;$/;"	m	struct:ELFHeader
+vaddr	kernel/include/x86/io.h	/^	unsigned int vaddr;$/;"	m	struct:ProgramHeader
+version	kernel/include/x86/io.h	/^	unsigned int   version;$/;"	m	struct:ELFHeader
+__IRQ_H__	kernel/include/x86/irq.h	2;"	d
+DPL_KERN	kernel/include/x86/memory.h	4;"	d
+DPL_USER	kernel/include/x86/memory.h	5;"	d
+GateDescriptor	kernel/include/x86/memory.h	/^struct GateDescriptor {$/;"	s
+KSEL	kernel/include/x86/memory.h	26;"	d
+NR_SEGMENTS	kernel/include/x86/memory.h	18;"	d
+SEG	kernel/include/x86/memory.h	68;"	d
+SEG16	kernel/include/x86/memory.h	73;"	d
+SEG_KCODE	kernel/include/x86/memory.h	19;"	d
+SEG_KDATA	kernel/include/x86/memory.h	20;"	d
+SEG_TSS	kernel/include/x86/memory.h	23;"	d
+SEG_UCODE	kernel/include/x86/memory.h	21;"	d
+SEG_UDATA	kernel/include/x86/memory.h	22;"	d
+STA_R	kernel/include/x86/memory.h	10;"	d
+STA_W	kernel/include/x86/memory.h	9;"	d
+STA_X	kernel/include/x86/memory.h	8;"	d
+STS_IG32	kernel/include/x86/memory.h	14;"	d
+STS_T32A	kernel/include/x86/memory.h	13;"	d
+STS_TG32	kernel/include/x86/memory.h	15;"	d
+SegDesc	kernel/include/x86/memory.h	/^struct SegDesc {$/;"	s
+SegDesc	kernel/include/x86/memory.h	/^typedef struct SegDesc SegDesc;$/;"	t	typeref:struct:SegDesc
+TSS	kernel/include/x86/memory.h	/^struct TSS {$/;"	s
+TSS	kernel/include/x86/memory.h	/^typedef struct TSS TSS;$/;"	t	typeref:struct:TSS
+TrapFrame	kernel/include/x86/memory.h	/^struct TrapFrame {$/;"	s
+USEL	kernel/include/x86/memory.h	27;"	d
+__X86_MEMORY_H__	kernel/include/x86/memory.h	2;"	d
+avl	kernel/include/x86/memory.h	/^	uint32_t avl : 1;        \/\/ Unused (available for software use)$/;"	m	struct:SegDesc
+base_15_0	kernel/include/x86/memory.h	/^	uint32_t base_15_0 : 16; \/\/ Low bits of segment base address$/;"	m	struct:SegDesc
+base_23_16	kernel/include/x86/memory.h	/^	uint32_t base_23_16 : 8; \/\/ Middle bits of segment base address$/;"	m	struct:SegDesc
+base_31_24	kernel/include/x86/memory.h	/^	uint32_t base_31_24 : 8; \/\/ High bits of segment base address$/;"	m	struct:SegDesc
+cr3	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+cs	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon1::__anon3
+db	kernel/include/x86/memory.h	/^	uint32_t db : 1;         \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:SegDesc
+dontcare	kernel/include/x86/memory.h	/^			char dontcare[88];$/;"	m	struct:TSS::__anon1::__anon2
+dpl	kernel/include/x86/memory.h	/^	uint32_t dpl : 2;        \/\/ Descriptor Privilege Level$/;"	m	struct:SegDesc
+ds	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon1::__anon3
+eax	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+eax	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
+ebp	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+ebp	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
+ebx	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+ebx	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
+ecx	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+ecx	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
+edi	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+edi	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
+edx	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+edx	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
+eflags	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+eip	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+es	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon1::__anon3
+esi	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+esi	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
+esp	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon1::__anon3
+esp0	kernel/include/x86/memory.h	/^	uint32_t esp0;         \/\/ Ring 0 Stack pointer and segment selector$/;"	m	struct:TSS
+esp1	kernel/include/x86/memory.h	/^			uint32_t esp1,ss1,esp2,ss2;$/;"	m	struct:TSS::__anon1::__anon3
+esp2	kernel/include/x86/memory.h	/^			uint32_t esp1,ss1,esp2,ss2;$/;"	m	struct:TSS::__anon1::__anon3
+fs	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon1::__anon3
+g	kernel/include/x86/memory.h	/^	uint32_t g : 1;          \/\/ Granularity: limit scaled by 4K when set$/;"	m	struct:SegDesc
+gs	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon1::__anon3
+irq	kernel/include/x86/memory.h	/^	int32_t irq;$/;"	m	struct:TrapFrame
+lLdt	kernel/include/x86/memory.h	/^static inline void lLdt(uint16_t sel)$/;"	f
+ldt	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon1::__anon3
+lim_15_0	kernel/include/x86/memory.h	/^	uint32_t lim_15_0 : 16;  \/\/ Low bits of segment limit$/;"	m	struct:SegDesc
+lim_19_16	kernel/include/x86/memory.h	/^	uint32_t lim_19_16 : 4;  \/\/ High bits of segment limit$/;"	m	struct:SegDesc
+link	kernel/include/x86/memory.h	/^	uint32_t link;         \/\/ old ts selector$/;"	m	struct:TSS
+offset_15_0	kernel/include/x86/memory.h	/^	uint32_t offset_15_0      : 16;$/;"	m	struct:GateDescriptor
+offset_31_16	kernel/include/x86/memory.h	/^	uint32_t offset_31_16     : 16;$/;"	m	struct:GateDescriptor
+p	kernel/include/x86/memory.h	/^	uint32_t p : 1;          \/\/ Present$/;"	m	struct:SegDesc
+pad0	kernel/include/x86/memory.h	/^	uint32_t pad0             : 8;$/;"	m	struct:GateDescriptor
+present	kernel/include/x86/memory.h	/^	uint32_t present          : 1;$/;"	m	struct:GateDescriptor
+privilege_level	kernel/include/x86/memory.h	/^	uint32_t privilege_level  : 2;$/;"	m	struct:GateDescriptor
+rsv1	kernel/include/x86/memory.h	/^	uint32_t rsv1 : 1;       \/\/ Reserved$/;"	m	struct:SegDesc
+s	kernel/include/x86/memory.h	/^	uint32_t s : 1;          \/\/ 0 = system, 1 = application$/;"	m	struct:SegDesc
+segment	kernel/include/x86/memory.h	/^	uint32_t segment          : 16;$/;"	m	struct:GateDescriptor
+setGdt	kernel/include/x86/memory.h	/^static inline void setGdt(SegDesc *gdt, uint32_t size) {$/;"	f
+ss	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon1::__anon3
+ss0	kernel/include/x86/memory.h	/^	uint32_t ss0;          \/\/ after an increase in privilege level$/;"	m	struct:TSS
+ss1	kernel/include/x86/memory.h	/^			uint32_t esp1,ss1,esp2,ss2;$/;"	m	struct:TSS::__anon1::__anon3
+ss2	kernel/include/x86/memory.h	/^			uint32_t esp1,ss1,esp2,ss2;$/;"	m	struct:TSS::__anon1::__anon3
+system	kernel/include/x86/memory.h	/^	uint32_t system           : 1;$/;"	m	struct:GateDescriptor
+type	kernel/include/x86/memory.h	/^	uint32_t type             : 4;$/;"	m	struct:GateDescriptor
+type	kernel/include/x86/memory.h	/^	uint32_t type : 4;       \/\/ Segment type (see STS_ constants)$/;"	m	struct:SegDesc
+xxx	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
+asmDoIrq	kernel/kernel/doIrq.S	/^asmDoIrq:$/;"	l
+irqGProtectFault	kernel/kernel/doIrq.S	/^irqGProtectFault:$/;"	l
+irqSyscall	kernel/kernel/doIrq.S	/^irqSyscall:$/;"	l
+irq_empty	kernel/kernel/doIrq.S	/^			irq_empty:	pushl $0;  pushl   $-1; jmp asm_do_irq$/;"	l
+IRQ_SLAVE	kernel/kernel/i8259.c	5;"	d	file:
+PORT_PIC_MASTER	kernel/kernel/i8259.c	3;"	d	file:
+PORT_PIC_SLAVE	kernel/kernel/i8259.c	4;"	d	file:
+initIntr	kernel/kernel/i8259.c	/^initIntr(void) {$/;"	f
+INTERRUPT_GATE_32	kernel/kernel/idt.c	4;"	d	file:
+TRAP_GATE_32	kernel/kernel/idt.c	5;"	d	file:
+idt	kernel/kernel/idt.c	/^struct GateDescriptor idt[NR_IRQ]; \/\/ NR_IRQ=256, defined in x86\/cpu.h$/;"	v	typeref:struct:GateDescriptor
+initIdt	kernel/kernel/idt.c	/^void initIdt() {$/;"	f
+setIntr	kernel/kernel/idt.c	/^static void setIntr(struct GateDescriptor *ptr, uint32_t selector, uint32_t offset, uint32_t dpl) {$/;"	f	file:
+setTrap	kernel/kernel/idt.c	/^static void setTrap(struct GateDescriptor *ptr, uint32_t selector, uint32_t offset, uint32_t dpl) {$/;"	f	file:
+GProtectFaultHandle	kernel/kernel/irqHandle.c	/^void GProtectFaultHandle(struct TrapFrame *tf){$/;"	f
+irqHandle	kernel/kernel/irqHandle.c	/^void irqHandle(struct TrapFrame *tf) {$/;"	f
+syscallHandle	kernel/kernel/irqHandle.c	/^void syscallHandle(struct TrapFrame *tf) {$/;"	f
+SECTSIZE	kernel/kernel/kvm.c	7;"	d	file:
+enterUserSpace	kernel/kernel/kvm.c	/^void enterUserSpace(uint32_t entry) {$/;"	f
+gdt	kernel/kernel/kvm.c	/^SegDesc gdt[NR_SEGMENTS];$/;"	v
+initSeg	kernel/kernel/kvm.c	/^void initSeg() {$/;"	f
+loadUMain	kernel/kernel/kvm.c	/^void loadUMain(void) {$/;"	f
+readSect	kernel/kernel/kvm.c	/^void readSect(void *dst, int offset) {$/;"	f
+tss	kernel/kernel/kvm.c	/^TSS tss;$/;"	v
+waitDisk	kernel/kernel/kvm.c	/^void waitDisk(void) {$/;"	f
+printk	kernel/kernel/printk.c	/^printk(const char *ctl, ...) $/;"	f
+initSerial	kernel/kernel/serial.c	/^void initSerial(void) {$/;"	f
+putChar	kernel/kernel/serial.c	/^void putChar(char ch) {$/;"	f
+serialIdle	kernel/kernel/serial.c	/^static inline int serialIdle(void) {$/;"	f	file:
+BLUE_SCREEN_TEXT	kernel/lib/abort.c	21;"	d	file:
+abort	kernel/lib/abort.c	/^int abort(const char *fname, int line) {$/;"	f
+append	kernel/lib/abort.c	/^static void append(char **p, const char *str) {$/;"	f	file:
+displayMessage	kernel/lib/abort.c	/^static void displayMessage(const char *file, int line) {$/;"	f	file:
+i2A	kernel/lib/abort.c	/^static char *i2A(int a) {$/;"	f	file:
+kEntry	kernel/main.c	/^void kEntry(void) {$/;"	f
+__lib_h__	lib/lib.h	2;"	d
+printf	lib/syscall.c	/^void printf(const char *format,...){$/;"	f
+syscall	lib/syscall.c	/^int32_t syscall(int num, uint32_t a1,uint32_t a2,$/;"	f
+__TYPES_H__	lib/types.h	2;"	d
+boolean	lib/types.h	/^typedef unsigned char  boolean;$/;"	t
+int16_t	lib/types.h	/^typedef          short int16_t;$/;"	t
+int32_t	lib/types.h	/^typedef          int   int32_t;$/;"	t
+int8_t	lib/types.h	/^typedef          char  int8_t;$/;"	t
+pid_t	lib/types.h	/^typedef int32_t  pid_t;$/;"	t
+size_t	lib/types.h	/^typedef uint32_t size_t;$/;"	t
+uint16_t	lib/types.h	/^typedef unsigned short uint16_t;$/;"	t
+uint32_t	lib/types.h	/^typedef unsigned int   uint32_t;$/;"	t
+uint8_t	lib/types.h	/^typedef unsigned char  uint8_t;$/;"	t

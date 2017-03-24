@@ -32,6 +32,25 @@ static void setTrap(struct GateDescriptor *ptr, uint32_t selector, uint32_t offs
 }
 
 /* 声明函数，这些函数在汇编代码里定义 */
+void irq0();
+void irq1();
+void irq14();
+void vec0();
+void vec1();
+void vec2();
+void vec3();
+void vec4();
+void vec5();
+void vec6();
+void vec7();
+void vec8();
+void vec9();
+void vec10();
+void vec11();
+void vec12();
+void vec13();
+void vec14();
+void vecsys();
 void irqEmpty();
 void irqGProtectFault();
 void irqSyscall();
@@ -47,6 +66,22 @@ void initIdt() {
 	 * 初始化 IDT 表, 为中断设置中断处理函数
 	 */
 	
+	setTrap(idt + 0, SEG_KCODE, (uint32_t)vec0, DPL_KERN);
+	setTrap(idt + 1, SEG_KCODE, (uint32_t)vec1, DPL_KERN);
+	setTrap(idt + 2, SEG_KCODE, (uint32_t)vec2, DPL_KERN);
+	setTrap(idt + 3, SEG_KCODE, (uint32_t)vec3, DPL_KERN);
+	setTrap(idt + 4, SEG_KCODE, (uint32_t)vec4, DPL_KERN);
+	setTrap(idt + 5, SEG_KCODE, (uint32_t)vec5, DPL_KERN);
+	setTrap(idt + 6, SEG_KCODE, (uint32_t)vec6, DPL_KERN);
+	setTrap(idt + 7, SEG_KCODE, (uint32_t)vec7, DPL_KERN);
+	setTrap(idt + 8, SEG_KCODE, (uint32_t)vec8, DPL_KERN);
+	setTrap(idt + 9, SEG_KCODE, (uint32_t)vec9, DPL_KERN);
+	setTrap(idt + 10, SEG_KCODE, (uint32_t)vec10, DPL_KERN);
+	setTrap(idt + 11, SEG_KCODE, (uint32_t)vec11, DPL_KERN);
+	setTrap(idt + 12, SEG_KCODE, (uint32_t)vec12, DPL_KERN);
+	setTrap(idt + 13, SEG_KCODE, (uint32_t)vec13, DPL_KERN);
+	setTrap(idt + 14, SEG_KCODE, (uint32_t)vec14, DPL_KERN);
+
 	setTrap(idt + 0xd, SEG_KCODE, (uint32_t)irqGProtectFault, DPL_KERN);
 	
 	setIntr(idt + 0x80, SEG_KCODE, (uint32_t)irqSyscall, DPL_USER); // for int 0x80, interrupt vector is 0x80, Interruption is disabled

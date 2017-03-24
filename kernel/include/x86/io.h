@@ -18,6 +18,7 @@ struct ELFHeader {
 	unsigned short shnum;
 	unsigned short shstrndx;
 };
+typedef struct ELFHeader ELFHeader;
 
 /* ELF32 Program header */
 struct ProgramHeader {
@@ -30,6 +31,7 @@ struct ProgramHeader {
 	unsigned int flags;
 	unsigned int align;
 };
+typedef struct ProgramHeader ProgramHeader;
 
 
 static inline int inLong(short port) {
