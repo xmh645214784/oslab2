@@ -47,7 +47,14 @@ void initSeg() {
 	asm volatile("ltr %%ax":: "a" (KSEL(SEG_TSS)));
 
 	/*设置正确的段寄存器*/
+	tss.ss0=KSEL(SEG_KDATA);
+	tss.esp0=0x200000;
 
+	asm volatile(	"movw %%ax,%%es\n\t"
+					"movw %%ax,%%ds\n\t"
+					"movw %%ax,%%ss    "
+					:
+					 : "a" (KSEL(SEG_KDATA)));
 	lLdt(0);
 	
 }
@@ -57,18 +64,22 @@ void enterUserSpace(uint32_t entry) {
 	 * you should set the right segment registers here
 	 * and use 'iret' to jump to ring3
 	 */
-	asm volatile("movw %0,%%ds  ;"
-				 "pushw %1		;"
-				 "pushl %2		;"
-				 "pushl %3		;"
-				 "pushl %4		;"
-				 "pushl %5		"
+	asm volatile(	"movw %%ax,%%es\n\t"
+					"movw %%ax,%%ds    "
+					:
+					: "a" ((SEG_UDATA<<3)|3));
+
+
+	asm volatile("pushw %0		\n\t"
+				 "pushl %1		\n\t"
+				 "pushfl		\n\t"
+				 "pushl %2		\n\t"
+				 "pushl %3		    "
 				 :
-				 :"a"((SEG_UDATA<<3)&3),
-				  "i"((SEG_UDATA<<3)&3),
-				  "i"(0xC0000000),
-				  "i"(2),
-				  "i"((SEG_UCODE<<3)&3),
+				 :"i"((SEG_UDATA<<3)|3),
+				  "i"(0x400000), 			//the user stack top
+				 					 		//at first I use 0xc0000000 and bad
+				  "i"((SEG_UCODE<<3)|3),
 				  "m"(entry)
 				 );
 	asm volatile("iret");
@@ -77,19 +88,24 @@ void enterUserSpace(uint32_t entry) {
 void loadUMain(void) {
 
 	/*加载用户程序至内存*/
-	char buf[SECTSIZE];
+	char *buf=(char *)0x8000;
 	/*read elf from disk*/
 	readseg((char*)buf, SECTSIZE, ELF_START_POS);
 	uint32_t entry=loader(buf);
 	enterUserSpace(entry);
 }
-/* 将磁盘offset位置的count字节数据读入物理地址pa */
+
 void readseg(char *address, int count, int offset) 
 {
+	char * dst=address+count;
 	address -= offset % SECTSIZE;
-	offset = (offset / SECTSIZE) + 1;
-	for(; address < address + count; address += SECTSIZE, offset ++)
+	offset = (offset / SECTSIZE);
+	while(address < dst)
+	{
 		readSect(address, offset);
+		address += SECTSIZE;
+		offset++;
+	}
 }
 
 uint32_t loader(char *buf)

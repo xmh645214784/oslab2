@@ -1,6 +1,4 @@
 #ifndef __lib_h__
 #define __lib_h__
-
-int printf(const char *format,...);
-
+void printf(char *format,...);
 #endif

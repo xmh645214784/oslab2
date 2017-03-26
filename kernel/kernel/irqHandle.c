@@ -12,6 +12,8 @@ void irqHandle(struct TrapFrame *tf) {
 	 */
 	/* Reassign segment register */
 
+	asm volatile("movw %%ax,%%es":: "a" (KSEL(SEG_KDATA)));
+	asm volatile("movw %%ax,%%ds":: "a" (KSEL(SEG_KDATA)));
 	switch(tf->irq) {
 		case -1:
 			break;
@@ -24,6 +26,31 @@ void irqHandle(struct TrapFrame *tf) {
 		default:assert(0);
 	}
 }
+
+unsigned line=1;
+unsigned raw=1;
+
+void putc(char ch){
+	if(ch!='\n'){
+		line--;raw--;
+		int b=(0x0c<<8)+(int)(ch);
+		int place=(line*80+raw)*2;
+		int g=0xb8000+place;
+		char* p;
+		p=(char*)g;
+		*p=b;
+		raw+=1;
+		if(raw==80){line+=1;raw=0;}
+		line++;raw++;
+		//while(1);
+	}
+	else {
+		line+=1;raw=1;
+	}
+}
+
+
+
 
 void syscallHandle(struct TrapFrame *tf) {
 	switch(tf->eax) {
@@ -41,7 +68,7 @@ void syscallHandle(struct TrapFrame *tf) {
 		            if (ch == '\0') 
 		            	break;
 					extern void putChar(char ch);
-		            putChar(ch);				
+		            putChar(ch);			
 	            }
 	        	tf->eax=len;
 			}

@@ -12,14 +12,12 @@ LDFLAGS	app/Makefile	/^LDFLAGS = -m elf_i386$/;"	m
 UCFILES	app/Makefile	/^UCFILES = $(shell find .\/ -name "*.c")$/;"	m
 UOBJS	app/Makefile	/^UOBJS = $(UCFILES:.c=.o) $(LCFILES:.c=.o)$/;"	m
 uEntry	app/main.c	/^int uEntry(void) {$/;"	f
-ELF_START_POS	bootloader/boot.c	7;"	d	file:
+ELF_START_POS	bootloader/boot.c	6;"	d	file:
 SECTSIZE	bootloader/boot.c	5;"	d	file:
-START_ADDR	bootloader/boot.c	6;"	d	file:
-assert	bootloader/boot.c	9;"	d	file:
 bootMain	bootloader/boot.c	/^void bootMain(void) {$/;"	f
 loader	bootloader/boot.c	/^uint32_t loader(char *buf)$/;"	f
 readSect	bootloader/boot.c	/^void readSect(void *dst, int offset) { \/\/ reading one sector of disk$/;"	f
-readseg	bootloader/boot.c	/^void readseg(unsigned char *address, int count, int offset) $/;"	f
+readseg	bootloader/boot.c	/^void readseg(char *address, int count, int offset) $/;"	f
 uint16_t	bootloader/boot.c	/^typedef unsigned short uint16_t;$/;"	t	file:
 uint32_t	bootloader/boot.c	/^typedef unsigned uint32_t;$/;"	t	file:
 waitDisk	bootloader/boot.c	/^void waitDisk(void) { \/\/ waiting for disk$/;"	f
@@ -1148,7 +1146,9 @@ enableInterrupt	kernel/include/x86/cpu.h	/^static inline void enableInterrupt(vo
 saveIdt	kernel/include/x86/cpu.h	/^static inline void saveIdt(void *addr, uint32_t size) {$/;"	f
 waitForInterrupt	kernel/include/x86/cpu.h	/^static inline void waitForInterrupt() {$/;"	f
 ELFHeader	kernel/include/x86/io.h	/^struct ELFHeader {$/;"	s
+ELFHeader	kernel/include/x86/io.h	/^typedef struct ELFHeader ELFHeader;$/;"	t	typeref:struct:ELFHeader
 ProgramHeader	kernel/include/x86/io.h	/^struct ProgramHeader {$/;"	s
+ProgramHeader	kernel/include/x86/io.h	/^typedef struct ProgramHeader ProgramHeader;$/;"	t	typeref:struct:ProgramHeader
 __X86_IO_H__	kernel/include/x86/io.h	2;"	d
 align	kernel/include/x86/io.h	/^	unsigned int align;$/;"	m	struct:ProgramHeader
 ehsize	kernel/include/x86/io.h	/^	unsigned short ehsize;$/;"	m	struct:ELFHeader
@@ -1260,10 +1260,11 @@ system	kernel/include/x86/memory.h	/^	uint32_t system           : 1;$/;"	m	struc
 type	kernel/include/x86/memory.h	/^	uint32_t type             : 4;$/;"	m	struct:GateDescriptor
 type	kernel/include/x86/memory.h	/^	uint32_t type : 4;       \/\/ Segment type (see STS_ constants)$/;"	m	struct:SegDesc
 xxx	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:TrapFrame
+print	kernel/kernel/debug.c	/^void print(char *temp, short line){$/;"	f
 asmDoIrq	kernel/kernel/doIrq.S	/^asmDoIrq:$/;"	l
+irqEmpty	kernel/kernel/doIrq.S	/^			irqEmpty:	pushl $0;  pushl   $-1; jmp asmDoIrq$/;"	l
 irqGProtectFault	kernel/kernel/doIrq.S	/^irqGProtectFault:$/;"	l
 irqSyscall	kernel/kernel/doIrq.S	/^irqSyscall:$/;"	l
-irq_empty	kernel/kernel/doIrq.S	/^			irq_empty:	pushl $0;  pushl   $-1; jmp asm_do_irq$/;"	l
 IRQ_SLAVE	kernel/kernel/i8259.c	5;"	d	file:
 PORT_PIC_MASTER	kernel/kernel/i8259.c	3;"	d	file:
 PORT_PIC_SLAVE	kernel/kernel/i8259.c	4;"	d	file:
@@ -1277,15 +1278,17 @@ setTrap	kernel/kernel/idt.c	/^static void setTrap(struct GateDescriptor *ptr, ui
 GProtectFaultHandle	kernel/kernel/irqHandle.c	/^void GProtectFaultHandle(struct TrapFrame *tf){$/;"	f
 irqHandle	kernel/kernel/irqHandle.c	/^void irqHandle(struct TrapFrame *tf) {$/;"	f
 syscallHandle	kernel/kernel/irqHandle.c	/^void syscallHandle(struct TrapFrame *tf) {$/;"	f
+ELF_START_POS	kernel/kernel/kvm.c	8;"	d	file:
 SECTSIZE	kernel/kernel/kvm.c	7;"	d	file:
 enterUserSpace	kernel/kernel/kvm.c	/^void enterUserSpace(uint32_t entry) {$/;"	f
 gdt	kernel/kernel/kvm.c	/^SegDesc gdt[NR_SEGMENTS];$/;"	v
 initSeg	kernel/kernel/kvm.c	/^void initSeg() {$/;"	f
 loadUMain	kernel/kernel/kvm.c	/^void loadUMain(void) {$/;"	f
+loader	kernel/kernel/kvm.c	/^uint32_t loader(char *buf)$/;"	f
 readSect	kernel/kernel/kvm.c	/^void readSect(void *dst, int offset) {$/;"	f
+readseg	kernel/kernel/kvm.c	/^void readseg(char *address, int count, int offset) $/;"	f
 tss	kernel/kernel/kvm.c	/^TSS tss;$/;"	v
 waitDisk	kernel/kernel/kvm.c	/^void waitDisk(void) {$/;"	f
-printk	kernel/kernel/printk.c	/^printk(const char *ctl, ...) $/;"	f
 initSerial	kernel/kernel/serial.c	/^void initSerial(void) {$/;"	f
 putChar	kernel/kernel/serial.c	/^void putChar(char ch) {$/;"	f
 serialIdle	kernel/kernel/serial.c	/^static inline int serialIdle(void) {$/;"	f	file:
@@ -1296,7 +1299,7 @@ displayMessage	kernel/lib/abort.c	/^static void displayMessage(const char *file,
 i2A	kernel/lib/abort.c	/^static char *i2A(int a) {$/;"	f	file:
 kEntry	kernel/main.c	/^void kEntry(void) {$/;"	f
 __lib_h__	lib/lib.h	2;"	d
-printf	lib/syscall.c	/^void printf(const char *format,...){$/;"	f
+printf	lib/syscall.c	/^int printf(const char *format,...){$/;"	f
 syscall	lib/syscall.c	/^int32_t syscall(int num, uint32_t a1,uint32_t a2,$/;"	f
 __TYPES_H__	lib/types.h	2;"	d
 boolean	lib/types.h	/^typedef unsigned char  boolean;$/;"	t

@@ -16,7 +16,9 @@ DPL_USER	kernel/include/x86/memory.h	5;"	d
 ELFHeader	bootloader/boot.h	/^struct ELFHeader {$/;"	s
 ELFHeader	bootloader/boot.h	/^typedef struct ELFHeader ELFHeader;$/;"	t	typeref:struct:ELFHeader
 ELFHeader	kernel/include/x86/io.h	/^struct ELFHeader {$/;"	s
-ELF_START_POS	bootloader/boot.c	7;"	d	file:
+ELFHeader	kernel/include/x86/io.h	/^typedef struct ELFHeader ELFHeader;$/;"	t	typeref:struct:ELFHeader
+ELF_START_POS	bootloader/boot.c	6;"	d	file:
+ELF_START_POS	kernel/kernel/kvm.c	8;"	d	file:
 FALSE	kernel/include/common/const.h	5;"	d
 GDT_ENTRY	bootloader/start.S	/^#define GDT_ENTRY(n) ((n) << 3)$/;"	d
 GProtectFaultHandle	kernel/kernel/irqHandle.c	/^void GProtectFaultHandle(struct TrapFrame *tf){$/;"	f
@@ -40,6 +42,7 @@ PORT_PIC_SLAVE	kernel/kernel/i8259.c	4;"	d	file:
 ProgramHeader	bootloader/boot.h	/^struct ProgramHeader {$/;"	s
 ProgramHeader	bootloader/boot.h	/^typedef struct ProgramHeader ProgramHeader;$/;"	t	typeref:struct:ProgramHeader
 ProgramHeader	kernel/include/x86/io.h	/^struct ProgramHeader {$/;"	s
+ProgramHeader	kernel/include/x86/io.h	/^typedef struct ProgramHeader ProgramHeader;$/;"	t	typeref:struct:ProgramHeader
 QEMU	Makefile	/^QEMU = qemu-system-i386$/;"	m
 SECTSIZE	bootloader/boot.c	5;"	d	file:
 SECTSIZE	kernel/kernel/kvm.c	7;"	d	file:
@@ -51,7 +54,6 @@ SEG_TSS	kernel/include/x86/memory.h	23;"	d
 SEG_UCODE	kernel/include/x86/memory.h	21;"	d
 SEG_UDATA	kernel/include/x86/memory.h	22;"	d
 SERIAL_PORT	kernel/include/device/serial.h	6;"	d
-START_ADDR	bootloader/boot.c	6;"	d	file:
 STA_R	kernel/include/x86/memory.h	10;"	d
 STA_W	kernel/include/x86/memory.h	9;"	d
 STA_X	kernel/include/x86/memory.h	8;"	d
@@ -1140,7 +1142,6 @@ align	bootloader/boot.h	/^	unsigned int align;$/;"	m	struct:ProgramHeader
 align	kernel/include/x86/io.h	/^	unsigned int align;$/;"	m	struct:ProgramHeader
 append	kernel/lib/abort.c	/^static void append(char **p, const char *str) {$/;"	f	file:
 asmDoIrq	kernel/kernel/doIrq.S	/^asmDoIrq:$/;"	l
-assert	bootloader/boot.c	9;"	d	file:
 assert	kernel/include/common/assert.h	7;"	d
 avl	kernel/include/x86/memory.h	/^	uint32_t avl : 1;        \/\/ Unused (available for software use)$/;"	m	struct:SegDesc
 base_15_0	kernel/include/x86/memory.h	/^	uint32_t base_15_0 : 16; \/\/ Low bits of segment base address$/;"	m	struct:SegDesc
@@ -1214,10 +1215,10 @@ int32_t	lib/types.h	/^typedef          int   int32_t;$/;"	t
 int8_t	kernel/include/common/types.h	/^typedef          char  int8_t;$/;"	t
 int8_t	lib/types.h	/^typedef          char  int8_t;$/;"	t
 irq	kernel/include/x86/memory.h	/^	int32_t irq;$/;"	m	struct:TrapFrame
+irqEmpty	kernel/kernel/doIrq.S	/^			irqEmpty:	pushl $0;  pushl   $-1; jmp asmDoIrq$/;"	l
 irqGProtectFault	kernel/kernel/doIrq.S	/^irqGProtectFault:$/;"	l
 irqHandle	kernel/kernel/irqHandle.c	/^void irqHandle(struct TrapFrame *tf) {$/;"	f
 irqSyscall	kernel/kernel/doIrq.S	/^irqSyscall:$/;"	l
-irq_empty	kernel/kernel/doIrq.S	/^			irq_empty:	pushl $0;  pushl   $-1; jmp asm_do_irq$/;"	l
 kEntry	kernel/main.c	/^void kEntry(void) {$/;"	f
 lLdt	kernel/include/x86/memory.h	/^static inline void lLdt(uint16_t sel)$/;"	f
 ldt	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon1::__anon3
@@ -1226,6 +1227,7 @@ lim_19_16	kernel/include/x86/memory.h	/^	uint32_t lim_19_16 : 4;  \/\/ High bits
 link	kernel/include/x86/memory.h	/^	uint32_t link;         \/\/ old ts selector$/;"	m	struct:TSS
 loadUMain	kernel/kernel/kvm.c	/^void loadUMain(void) {$/;"	f
 loader	bootloader/boot.c	/^uint32_t loader(char *buf)$/;"	f
+loader	kernel/kernel/kvm.c	/^uint32_t loader(char *buf)$/;"	f
 machine	bootloader/boot.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader
 machine	kernel/include/x86/io.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader
 magic	bootloader/boot.h	/^	unsigned int   magic;$/;"	m	struct:ELFHeader
@@ -1250,13 +1252,14 @@ phoff	bootloader/boot.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader
 phoff	kernel/include/x86/io.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader
 pid_t	lib/types.h	/^typedef int32_t  pid_t;$/;"	t
 present	kernel/include/x86/memory.h	/^	uint32_t present          : 1;$/;"	m	struct:GateDescriptor
-printf	lib/syscall.c	/^void printf(const char *format,...){$/;"	f
-printk	kernel/kernel/printk.c	/^printk(const char *ctl, ...) $/;"	f
+print	kernel/kernel/debug.c	/^void print(char *temp, short line){$/;"	f
+printf	lib/syscall.c	/^int printf(const char *format,...){$/;"	f
 privilege_level	kernel/include/x86/memory.h	/^	uint32_t privilege_level  : 2;$/;"	m	struct:GateDescriptor
 putChar	kernel/kernel/serial.c	/^void putChar(char ch) {$/;"	f
 readSect	bootloader/boot.c	/^void readSect(void *dst, int offset) { \/\/ reading one sector of disk$/;"	f
 readSect	kernel/kernel/kvm.c	/^void readSect(void *dst, int offset) {$/;"	f
-readseg	bootloader/boot.c	/^void readseg(unsigned char *address, int count, int offset) $/;"	f
+readseg	bootloader/boot.c	/^void readseg(char *address, int count, int offset) $/;"	f
+readseg	kernel/kernel/kvm.c	/^void readseg(char *address, int count, int offset) $/;"	f
 rsv1	kernel/include/x86/memory.h	/^	uint32_t rsv1 : 1;       \/\/ Reserved$/;"	m	struct:SegDesc
 s	kernel/include/x86/memory.h	/^	uint32_t s : 1;          \/\/ 0 = system, 1 = application$/;"	m	struct:SegDesc
 saveIdt	kernel/include/x86/cpu.h	/^static inline void saveIdt(void *addr, uint32_t size) {$/;"	f

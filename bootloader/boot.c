@@ -3,14 +3,7 @@
 #include <stdlib.h>
 
 #define SECTSIZE 512
-
 #define ELF_START_POS SECTSIZE
-
-#define assert(cond) \
-	do\
-	{\
-		;\
-	} while (0);
 
 typedef unsigned uint32_t;
 typedef unsigned short uint16_t;
@@ -20,12 +13,11 @@ void readseg(char *address, int count, int offset);
 
 
 void bootMain(void) {
-	char *buf = (char*)0x8000;
+	char *buf=(char *)0x8000;
 	
 	/*read elf from disk*/
-	// readseg((char*)buf, 4096, ELF_START_POS);
-	readSect(buf,1);
-	
+	readseg((char*)buf, 100, ELF_START_POS);
+
 	void (*entry)(void);
 	entry=(void *)loader(buf);
 	entry();
@@ -37,10 +29,6 @@ uint32_t loader(char *buf)
 	ELFHeader *elf=(void *)buf;
 	ProgramHeader *ph = NULL;
 	uint16_t real_phnum=elf->phnum;
-	if(elf->phnum==0xffffU)
-	{
-		assert(0);
-	}
 	for(int i=0;i<real_phnum;i++) 
 	{
 		ph=(void*)(buf+elf->phoff+i*elf->phentsize);
@@ -58,7 +46,6 @@ uint32_t loader(char *buf)
 	volatile uint32_t entry = elf->entry;
 	return entry;
 }
-
 void waitDisk(void) { // waiting for disk
 	while((inByte(0x1F7) & 0xC0) != 0x40);
 }
@@ -83,8 +70,15 @@ void readSect(void *dst, int offset) { // reading one sector of disk
 /* 将磁盘offset位置的count字节数据读入物理地址pa */
 void readseg(char *address, int count, int offset) 
 {
+	char * dst=address+count;
 	address -= offset % SECTSIZE;
-	offset = (offset / SECTSIZE) + 1;
-	for(; address < address + count; address += SECTSIZE, offset ++)
+	offset = (offset / SECTSIZE);
+	while(address < dst)
+	{
 		readSect(address, offset);
+		address += SECTSIZE;
+		offset++;
+	}
 }
+
+
