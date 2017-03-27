@@ -2,6 +2,31 @@
 #include "device.h"
 #include <sys/syscall.h>
 
+
+static int line=5;
+static int col=0;
+
+#define pattern 0x0c
+void showCharInScreen(char ch){
+	if(ch!='\n')
+	{
+		short b=(pattern<<8)+(int)(ch);
+		int place=(line*80+col)*2;
+		short* p=(short*)(0xb8000+place);
+		*p=b;
+		col++;
+		if(col==80)
+		{
+			line++;
+			col=0;
+		}
+	}
+	else {
+		line++;
+		col=0;
+	}
+}
+
 void syscallHandle(struct TrapFrame *tf);
 
 void GProtectFaultHandle(struct TrapFrame *tf);
@@ -27,30 +52,6 @@ void irqHandle(struct TrapFrame *tf) {
 	}
 }
 
-unsigned line=1;
-unsigned raw=1;
-
-void putc(char ch){
-	if(ch!='\n'){
-		line--;raw--;
-		int b=(0x0c<<8)+(int)(ch);
-		int place=(line*80+raw)*2;
-		int g=0xb8000+place;
-		char* p;
-		p=(char*)g;
-		*p=b;
-		raw+=1;
-		if(raw==80){line+=1;raw=0;}
-		line++;raw++;
-		//while(1);
-	}
-	else {
-		line+=1;raw=1;
-	}
-}
-
-
-
 
 void syscallHandle(struct TrapFrame *tf) {
 	switch(tf->eax) {
@@ -68,7 +69,8 @@ void syscallHandle(struct TrapFrame *tf) {
 		            if (ch == '\0') 
 		            	break;
 					extern void putChar(char ch);
-		            putChar(ch);			
+		            putChar(ch);
+		            showCharInScreen(ch);		
 	            }
 	        	tf->eax=len;
 			}

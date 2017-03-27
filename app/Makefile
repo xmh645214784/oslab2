@@ -1,17 +1,23 @@
 CC = gcc
 LD = ld
 
+LIB_COMMON_DIR := ../lib
+LIBC_INC_DIR := $(LIB_COMMON_DIR)/uclibc/include
+LIBC_LIB_DIR := $(LIB_COMMON_DIR)/uclibc/lib
+LIBC := $(LIBC_LIB_DIR)/libc.a
+
+
 CFLAGS = -m32 -march=i386 -static \
 	 -fno-builtin -fno-stack-protector -fno-omit-frame-pointer \
-	 -Wall -Werror -O2 -I../lib
+	 -Wall -Werror -O2  -I$(LIBC_INC_DIR) -I$(LIBC_LIB_DIR)
 LDFLAGS = -m elf_i386
 
 UCFILES = $(shell find ./ -name "*.c")
 LCFILES = $(shell find ../lib -name "*.c")
 UOBJS = $(UCFILES:.c=.o) $(LCFILES:.c=.o)
 
-umain.bin: $(UOBJS)
-	$(LD) $(LDFLAGS) -e uEntry -Ttext 0x00200000 -o uMain.elf $(UOBJS)
+umain.bin: $(UOBJS) $(LIBC)
+	$(LD) $(LDFLAGS) -e uEntry -Ttext 0x00200000 -o uMain.elf $^
 
 clean:
 	rm -rf $(UOBJS) uMain.elf
