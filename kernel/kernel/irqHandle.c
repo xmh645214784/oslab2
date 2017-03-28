@@ -62,6 +62,7 @@ void syscallHandle(struct TrapFrame *tf) {
 			{
 				char *buf=(void *)tf->ecx;
 				int len=tf->edx;
+				int retlen=0;
            		char ch;
            		while (len--) 
            		 {
@@ -70,9 +71,10 @@ void syscallHandle(struct TrapFrame *tf) {
 		            	break;
 					extern void putChar(char ch);
 		            putChar(ch);
-		            showCharInScreen(ch);		
+		            showCharInScreen(ch);
+		            retlen++;		
 	            }
-	        	tf->eax=len;
+	        	tf->eax=retlen;
 			}
 			else
 			{
