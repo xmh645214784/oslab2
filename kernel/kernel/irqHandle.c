@@ -37,8 +37,11 @@ void irqHandle(struct TrapFrame *tf) {
 	 */
 	/* Reassign segment register */
 
-	asm volatile("movw %%ax,%%es":: "a" (KSEL(SEG_KDATA)));
-	asm volatile("movw %%ax,%%ds":: "a" (KSEL(SEG_KDATA)));
+	asm volatile("movw %%ax,%%es\n\t"
+				 "movw %%ax,%%ds\n\t"
+				 "movw %%ax,%%fs"
+				 :
+				 : "a" (KSEL(SEG_KDATA)));
 	switch(tf->irq) {
 		case -1:
 			break;
@@ -50,6 +53,11 @@ void irqHandle(struct TrapFrame *tf) {
 			break;
 		default:assert(0);
 	}
+	asm volatile("movw %%ax,%%es\n\t"
+				 "movw %%ax,%%ds\n\t"
+				 "movw %%ax,%%fs"
+				 :
+				 : "a" (KSEL(SEG_UDATA)));
 }
 
 
