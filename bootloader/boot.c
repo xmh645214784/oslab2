@@ -1,6 +1,6 @@
 #include "boot.h"
-#include <string.h>
-#include <stdlib.h>
+
+#define NULL 0
 
 #define SECTSIZE 512
 #define ELF_START_POS SECTSIZE

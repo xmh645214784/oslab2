@@ -20,7 +20,7 @@ start32:
 	movw    %ax, %ds          # %DS = %AX
 	movw    %ax, %es          # %ES = %AX
 	movw    %ax, %fs           # %FS = %AX
-    	movw    %ax, %ss          # %SS = %AX
+    movw    %ax, %ss          # %SS = %AX
 
                 movw    $GDT_ENTRY(3), %ax         # %GS = %AX
                 movw    %ax,%gs

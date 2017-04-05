@@ -52,6 +52,7 @@ void initSeg() {
 
 	asm volatile(	"movw %%ax,%%es\n\t"
 					"movw %%ax,%%ds\n\t"
+					"movw %%ax,%%fs\n\t"
 					"movw %%ax,%%ss    "
 					:
 					 : "a" (KSEL(SEG_KDATA)));
@@ -65,6 +66,7 @@ void enterUserSpace(uint32_t entry) {
 	 * and use 'iret' to jump to ring3
 	 */
 	asm volatile(	"movw %%ax,%%es\n\t"
+					"movw %%ax,%%fs\n\t"
 					"movw %%ax,%%ds    "
 					:
 					: "a" ((SEG_UDATA<<3)|3));
